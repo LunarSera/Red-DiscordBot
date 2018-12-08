@@ -1,0 +1,3015 @@
+[26/11/2018 17:23] ERROR red load_cogs 573: ('invalid syntax', ('/home/red/cogs/sysinfo.py', 19, 17, 'class System Info:\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/sysinfo.py", line 19
+    class System Info:
+                    ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "red.py", line 570, in load_cogs
+    owner_cog._load_cog(extension)
+  File "/home/red/cogs/owner.py", line 950, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('invalid syntax', ('/home/red/cogs/sysinfo.py', 19, 17, 'class System Info:\n'))
+[26/11/2018 17:50] ERROR red load_cogs 573: ('inconsistent use of tabs and spaces in indentation', ('/home/red/cogs/general.py', 50, 32, '\t\tchannel = ctx.message.channel\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/general.py", line 50
+    channel = ctx.message.channel
+                                ^
+TabError: inconsistent use of tabs and spaces in indentation
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "red.py", line 570, in load_cogs
+    owner_cog._load_cog(extension)
+  File "/home/red/cogs/owner.py", line 950, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('inconsistent use of tabs and spaces in indentation', ('/home/red/cogs/general.py', 50, 32, '\t\tchannel = ctx.message.channel\n'))
+[26/11/2018 17:52] ERROR owner load 69: ('inconsistent use of tabs and spaces in indentation', ('/home/red/cogs/general.py', 50, 32, '\t\tchannel = ctx.message.channel\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/general.py", line 50
+    channel = ctx.message.channel
+                                ^
+TabError: inconsistent use of tabs and spaces in indentation
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 950, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('inconsistent use of tabs and spaces in indentation', ('/home/red/cogs/general.py', 50, 32, '\t\tchannel = ctx.message.channel\n'))
+[26/11/2018 17:53] ERROR owner load 74: name 'false' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/general.py", line 35, in <module>
+    class General:
+  File "/home/red/cogs/general.py", line 47, in General
+    @commands.command(hidden=false)
+NameError: name 'false' is not defined
+[26/11/2018 17:54] ERROR red on_command_error 369: Exception in command 'ping'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/general.py", line 50, in ping
+    channel = ctx.message.channel
+NameError: name 'ctx' is not defined
+[26/11/2018 18:14] ERROR owner load 69: ('invalid syntax', ('/home/red/cogs/sysinfo.py', 19, 17, 'class System Info:\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/sysinfo.py", line 19
+    class System Info:
+                    ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 950, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('invalid syntax', ('/home/red/cogs/sysinfo.py', 19, 17, 'class System Info:\n'))
+[26/11/2018 18:15] ERROR owner load 74: name 'sysinfo' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/sysinfo.py", line 19, in <module>
+    class SystemInfo:
+  File "/home/red/cogs/sysinfo.py", line 31, in SystemInfo
+    @sysinfo.command(pass_context=True)
+NameError: name 'sysinfo' is not defined
+[26/11/2018 18:16] ERROR owner load 74: name 'sysinfo' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/sysinfo.py", line 19, in <module>
+    class SysInfo:
+  File "/home/red/cogs/sysinfo.py", line 31, in SysInfo
+    @sysinfo.command(pass_context=True)
+NameError: name 'sysinfo' is not defined
+[26/11/2018 18:17] ERROR owner load 69: ('invalid syntax', ('/home/red/cogs/sysinfov2.py', 19, 17, 'class System Info:\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/sysinfov2.py", line 19
+    class System Info:
+                    ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 950, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('invalid syntax', ('/home/red/cogs/sysinfov2.py', 19, 17, 'class System Info:\n'))
+[26/11/2018 18:18] ERROR owner load 69: ('invalid syntax', ('/home/red/cogs/sysinfov2.py', 19, 17, 'class System Info:\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/sysinfov2.py", line 19
+    class System Info:
+                    ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 950, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('invalid syntax', ('/home/red/cogs/sysinfov2.py', 19, 17, 'class System Info:\n'))
+[26/11/2018 18:18] ERROR owner load 74: name 'sys' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 948, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/sysinfo.py", line 731, in setup
+    n = sys(bot)
+NameError: name 'sys' is not defined
+[26/11/2018 18:19] ERROR red on_command_error 369: Exception in command 'reload'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 948, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/sysinfo.py", line 732, in setup
+    bot.add_cog(n)
+  File "lib/discord/ext/commands/bot.py", line 655, in add_cog
+    self.add_command(member)
+  File "lib/discord/ext/commands/core.py", line 492, in add_command
+    raise discord.ClientException('The alias {} is already an existing command or alias.'.format(alias))
+discord.errors.ClientException: The alias sys is already an existing command or alias.
+[26/11/2018 18:19] ERROR owner load 74: The alias sys is already an existing command or alias.
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 948, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/sysinfo.py", line 732, in setup
+    bot.add_cog(n)
+  File "lib/discord/ext/commands/bot.py", line 655, in add_cog
+    self.add_command(member)
+  File "lib/discord/ext/commands/core.py", line 492, in add_command
+    raise discord.ClientException('The alias {} is already an existing command or alias.'.format(alias))
+discord.errors.ClientException: The alias sys is already an existing command or alias.
+[26/11/2018 22:25] ERROR owner load 74: The alias sys is already an existing command or alias.
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 948, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/sysinfo.py", line 732, in setup
+    bot.add_cog(n)
+  File "lib/discord/ext/commands/bot.py", line 655, in add_cog
+    self.add_command(member)
+  File "lib/discord/ext/commands/core.py", line 492, in add_command
+    raise discord.ClientException('The alias {} is already an existing command or alias.'.format(alias))
+discord.errors.ClientException: The alias sys is already an existing command or alias.
+[26/11/2018 22:26] ERROR owner load 74: Command sys is already registered.
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 948, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/sysinfo.py", line 732, in setup
+    bot.add_cog(n)
+  File "lib/discord/ext/commands/bot.py", line 655, in add_cog
+    self.add_command(member)
+  File "lib/discord/ext/commands/core.py", line 487, in add_command
+    raise discord.ClientException('Command {0.name} is already registered.'.format(command))
+discord.errors.ClientException: Command sys is already registered.
+[26/11/2018 22:39] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[26/11/2018 22:41] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[26/11/2018 22:44] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[26/11/2018 22:46] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[26/11/2018 22:47] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[26/11/2018 22:57] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[26/11/2018 23:32] ERROR red load_cogs 573: cannot import name 'randchoice'
+Traceback (most recent call last):
+  File "red.py", line 570, in load_cogs
+    owner_cog._load_cog(extension)
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 2, in <module>
+    from random import randchoice
+ImportError: cannot import name 'randchoice'
+[26/11/2018 23:32] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[26/11/2018 23:33] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[26/11/2018 23:41] ERROR red on_command_error 369: Exception in command 'reload'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 8, in <module>
+    class Enigmata:
+  File "/home/red/cogs/enigmata.py", line 15, in Enigmata
+    @checks.owner()
+NameError: name 'checks' is not defined
+[26/11/2018 23:41] ERROR red load_cogs 573: name 'checks' is not defined
+Traceback (most recent call last):
+  File "red.py", line 570, in load_cogs
+    owner_cog._load_cog(extension)
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 8, in <module>
+    class Enigmata:
+  File "/home/red/cogs/enigmata.py", line 15, in Enigmata
+    @checks.owner()
+NameError: name 'checks' is not defined
+[26/11/2018 23:42] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[26/11/2018 23:43] ERROR owner load 74: module 'cogs.utils.checks' has no attribute 'owner'
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 8, in <module>
+    class Enigmata:
+  File "/home/red/cogs/enigmata.py", line 15, in Enigmata
+    @checks.owner()
+AttributeError: module 'cogs.utils.checks' has no attribute 'owner'
+[26/11/2018 23:45] ERROR owner load 74: The alias core is already an existing command or alias.
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 948, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/enigmata.py", line 43, in setup
+    bot.add_cog(Enigmata(bot))
+  File "lib/discord/ext/commands/bot.py", line 655, in add_cog
+    self.add_command(member)
+  File "lib/discord/ext/commands/core.py", line 492, in add_command
+    raise discord.ClientException('The alias {} is already an existing command or alias.'.format(alias))
+discord.errors.ClientException: The alias core is already an existing command or alias.
+[26/11/2018 23:45] ERROR owner load 74: Command core is already registered.
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 948, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/enigmata.py", line 43, in setup
+    bot.add_cog(Enigmata(bot))
+  File "lib/discord/ext/commands/bot.py", line 655, in add_cog
+    self.add_command(member)
+  File "lib/discord/ext/commands/core.py", line 487, in add_command
+    raise discord.ClientException('Command {0.name} is already registered.'.format(command))
+discord.errors.ClientException: Command core is already registered.
+[27/11/2018 00:01] ERROR red on_command_error 369: Exception in command 'reload'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 9, in <module>
+    class Enigmata:
+  File "/home/red/cogs/enigmata.py", line 28, in Enigmata
+    @lore.command(pass_context=True, hidden=false)
+NameError: name 'false' is not defined
+[27/11/2018 01:00] ERROR owner _reload 156: ('inconsistent use of tabs and spaces in indentation', ('/home/red/cogs/enigmata.py', 98, 52, '\t@checks.admin_or_permissions(manage_messages=True)\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 98
+    @checks.admin_or_permissions(manage_messages=True)
+                                                     ^
+TabError: inconsistent use of tabs and spaces in indentation
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 950, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('inconsistent use of tabs and spaces in indentation', ('/home/red/cogs/enigmata.py', 98, 52, '\t@checks.admin_or_permissions(manage_messages=True)\n'))
+[27/11/2018 01:02] ERROR red load_cogs 573: ('inconsistent use of tabs and spaces in indentation', ('/home/red/cogs/enigmata.py', 98, 52, '\t@checks.admin_or_permissions(manage_messages=True)\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 98
+    @checks.admin_or_permissions(manage_messages=True)
+                                                     ^
+TabError: inconsistent use of tabs and spaces in indentation
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "red.py", line 570, in load_cogs
+    owner_cog._load_cog(extension)
+  File "/home/red/cogs/owner.py", line 950, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('inconsistent use of tabs and spaces in indentation', ('/home/red/cogs/enigmata.py', 98, 52, '\t@checks.admin_or_permissions(manage_messages=True)\n'))
+[27/11/2018 01:02] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[27/11/2018 01:02] ERROR owner load 69: ('inconsistent use of tabs and spaces in indentation', ('/home/red/cogs/enigmata.py', 98, 52, '\t@checks.admin_or_permissions(manage_messages=True)\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 98
+    @checks.admin_or_permissions(manage_messages=True)
+                                                     ^
+TabError: inconsistent use of tabs and spaces in indentation
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 950, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('inconsistent use of tabs and spaces in indentation', ('/home/red/cogs/enigmata.py', 98, 52, '\t@checks.admin_or_permissions(manage_messages=True)\n'))
+[27/11/2018 01:03] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[27/11/2018 01:05] ERROR owner load 69: ('inconsistent use of tabs and spaces in indentation', ('/home/red/cogs/enigmata.py', 98, 52, '\t@checks.admin_or_permissions(manage_messages=True)\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 98
+    @checks.admin_or_permissions(manage_messages=True)
+                                                     ^
+TabError: inconsistent use of tabs and spaces in indentation
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 950, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('inconsistent use of tabs and spaces in indentation', ('/home/red/cogs/enigmata.py', 98, 52, '\t@checks.admin_or_permissions(manage_messages=True)\n'))
+[27/11/2018 01:24] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[27/11/2018 01:37] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[27/11/2018 01:39] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[27/11/2018 01:54] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[27/11/2018 01:54] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[27/11/2018 02:10] ERROR owner load 69: ('inconsistent use of tabs and spaces in indentation', ('/home/red/cogs/enigmata.py', 98, 52, '\t@checks.admin_or_permissions(manage_messages=True)\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 98
+    @checks.admin_or_permissions(manage_messages=True)
+                                                     ^
+TabError: inconsistent use of tabs and spaces in indentation
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 950, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('inconsistent use of tabs and spaces in indentation', ('/home/red/cogs/enigmata.py', 98, 52, '\t@checks.admin_or_permissions(manage_messages=True)\n'))
+[27/11/2018 02:11] ERROR red on_command_error 369: Exception in command 'reload'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 948, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/enigmata.py", line 213, in setup
+    bot.add_cog(Enigmata(bot))
+  File "/home/red/cogs/enigmata.py", line 20, in __init__
+    self.images = dataIO.load_json("data/enigmata/settings.json")
+  File "/home/red/cogs/utils/dataIO.py", line 32, in load_json
+    return self._read_json(filename)
+  File "/home/red/cogs/utils/dataIO.py", line 45, in _read_json
+    with open(filename, encoding='utf-8', mode="r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/enigmata/settings.json'
+[27/11/2018 02:19] ERROR owner _reload 156: ('inconsistent use of tabs and spaces in indentation', ('/home/red/cogs/enigmata.py', 85, 52, '\t@checks.admin_or_permissions(manage_messages=True)\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 85
+    @checks.admin_or_permissions(manage_messages=True)
+                                                     ^
+TabError: inconsistent use of tabs and spaces in indentation
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 950, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('inconsistent use of tabs and spaces in indentation', ('/home/red/cogs/enigmata.py', 85, 52, '\t@checks.admin_or_permissions(manage_messages=True)\n'))
+[27/11/2018 02:23] ERROR red on_command_error 369: Exception in command 'enigmata upload'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 131, in upload
+    if server.id not in self.images["server"]:
+TypeError: string indices must be integers
+[27/11/2018 02:45] ERROR owner _reload 156: ('invalid syntax', ('/home/red/cogs/enigmata.py', 95, 19, '            msg + = image + ", "\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 95
+    msg + = image + ", "
+          ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 950, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('invalid syntax', ('/home/red/cogs/enigmata.py', 95, 19, '            msg + = image + ", "\n'))
+[27/11/2018 03:00] ERROR red load_cogs 573: ('invalid syntax', ('/home/red/cogs/enigmata.py', 95, 19, '            msg + = image + ", "\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 95
+    msg + = image + ", "
+          ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "red.py", line 570, in load_cogs
+    owner_cog._load_cog(extension)
+  File "/home/red/cogs/owner.py", line 950, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('invalid syntax', ('/home/red/cogs/enigmata.py', 95, 19, '            msg + = image + ", "\n'))
+[27/11/2018 03:00] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[27/11/2018 03:30] ERROR red on_command_error 369: Exception in command 'enigmata list'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 91, in list
+    if os.listdir(self.images) == []:
+TypeError: listdir: path should be string, bytes, os.PathLike, integer or None, not dict
+[27/11/2018 03:31] ERROR red on_command_error 369: Exception in command 'enigmata list'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 91, in list
+    if os.listdir(self.images) == []:
+TypeError: listdir: path should be string, bytes, os.PathLike, integer or None, not dict
+[27/11/2018 03:47] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[27/11/2018 03:49] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[27/11/2018 03:50] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[27/11/2018 03:53] ERROR red on_command_error 369: Exception in command 'reload'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 14, in <module>
+    class Enigmata:
+  File "/home/red/cogs/enigmata.py", line 166, in Enigmata
+    @enigmata.command(pass_context=True, no_pm=True, invoke_without_command=True)
+  File "lib/discord/ext/commands/core.py", line 574, in decorator
+    self.add_command(result)
+  File "lib/discord/ext/commands/core.py", line 487, in add_command
+    raise discord.ClientException('Command {0.name} is already registered.'.format(command))
+discord.errors.ClientException: Command upload is already registered.
+[27/11/2018 03:54] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[27/11/2018 03:55] ERROR red on_command_error 369: Exception in command 'enigmata upload'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 102, in upload
+    if server.id not in self.settings:
+AttributeError: 'Enigmata' object has no attribute 'settings'
+[27/11/2018 04:01] ERROR red on_command_error 369: Exception in command 'enigmata upload'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 110, in upload
+    if self.settings[server.id]["autodelete"] == "1":
+AttributeError: 'Enigmata' object has no attribute 'settings'
+[27/11/2018 23:41] ERROR red on_command_error 369: Exception in command 'welcomeset'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/welcome.py", line 34, in welcomeset
+    self.settings[server.id]["CHANNEL"] = server.default_channel.id
+AttributeError: 'NoneType' object has no attribute 'id'
+[27/11/2018 23:45] ERROR red on_command_error 369: Exception in command 'welcomeset'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/welcome.py", line 34, in welcomeset
+    self.settings[server.id]["CHANNEL"] = server.default_channel.id
+AttributeError: 'NoneType' object has no attribute 'id'
+[29/11/2018 04:48] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[29/11/2018 21:08] ERROR owner _reload 156: ('invalid syntax', ('/home/red/cogs/enigmata.py', 1, 10, 'fimport os\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 1
+    fimport os
+             ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 950, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('invalid syntax', ('/home/red/cogs/enigmata.py', 1, 10, 'fimport os\n'))
+[29/11/2018 21:09] ERROR owner _reload 156: ('invalid syntax', ('/home/red/cogs/enigmata.py', 19, 64, '        self.lore = dataIO.load_json("data/enigmata/lore.json")?\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 19
+    self.lore = dataIO.load_json("data/enigmata/lore.json")?
+                                                           ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 950, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('invalid syntax', ('/home/red/cogs/enigmata.py', 19, 64, '        self.lore = dataIO.load_json("data/enigmata/lore.json")?\n'))
+[29/11/2018 21:09] ERROR red on_command_error 369: Exception in command 'reload'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 948, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/enigmata.py", line 217, in setup
+    bot.add_cog(Enigmata(bot))
+  File "/home/red/cogs/enigmata.py", line 20, in __init__
+    self.catfacts = dataIO.load_json("data/enigmata/catfacts.json")
+  File "/home/red/cogs/utils/dataIO.py", line 32, in load_json
+    return self._read_json(filename)
+  File "/home/red/cogs/utils/dataIO.py", line 46, in _read_json
+    data = json.load(f)
+  File "/usr/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 355, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting ':' delimiter: line 1 column 59 (char 58)
+[29/11/2018 21:12] ERROR red load_cogs 573: Expecting ':' delimiter: line 1 column 59 (char 58)
+Traceback (most recent call last):
+  File "red.py", line 570, in load_cogs
+    owner_cog._load_cog(extension)
+  File "/home/red/cogs/owner.py", line 948, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/enigmata.py", line 217, in setup
+    bot.add_cog(Enigmata(bot))
+  File "/home/red/cogs/enigmata.py", line 20, in __init__
+    self.catfacts = dataIO.load_json("data/enigmata/catfacts.json")
+  File "/home/red/cogs/utils/dataIO.py", line 32, in load_json
+    return self._read_json(filename)
+  File "/home/red/cogs/utils/dataIO.py", line 46, in _read_json
+    data = json.load(f)
+  File "/usr/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 355, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting ':' delimiter: line 1 column 59 (char 58)
+[29/11/2018 21:12] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[29/11/2018 21:12] ERROR owner load 74: Expecting ':' delimiter: line 1 column 59 (char 58)
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 948, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/enigmata.py", line 217, in setup
+    bot.add_cog(Enigmata(bot))
+  File "/home/red/cogs/enigmata.py", line 20, in __init__
+    self.catfacts = dataIO.load_json("data/enigmata/catfacts.json")
+  File "/home/red/cogs/utils/dataIO.py", line 32, in load_json
+    return self._read_json(filename)
+  File "/home/red/cogs/utils/dataIO.py", line 46, in _read_json
+    data = json.load(f)
+  File "/usr/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 355, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting ':' delimiter: line 1 column 59 (char 58)
+[29/11/2018 21:12] ERROR owner load 74: Expecting ':' delimiter: line 1 column 59 (char 58)
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 948, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/enigmata.py", line 217, in setup
+    bot.add_cog(Enigmata(bot))
+  File "/home/red/cogs/enigmata.py", line 20, in __init__
+    self.catfacts = dataIO.load_json("data/enigmata/catfacts.json")
+  File "/home/red/cogs/utils/dataIO.py", line 32, in load_json
+    return self._read_json(filename)
+  File "/home/red/cogs/utils/dataIO.py", line 46, in _read_json
+    data = json.load(f)
+  File "/usr/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 355, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting ':' delimiter: line 1 column 59 (char 58)
+[29/11/2018 21:28] ERROR owner _reload 156: ('expected an indented block', ('/home/red/cogs/enigmata.py', 82, 33, '    """Gets a random cat fact."""\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 82
+    """Gets a random cat fact."""
+                                ^
+IndentationError: expected an indented block
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 950, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('expected an indented block', ('/home/red/cogs/enigmata.py', 82, 33, '    """Gets a random cat fact."""\n'))
+[29/11/2018 21:29] ERROR owner _reload 156: ('expected an indented block', ('/home/red/cogs/enigmata.py', 82, 33, '    """Gets a random cat fact."""\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 82
+    """Gets a random cat fact."""
+                                ^
+IndentationError: expected an indented block
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 950, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('expected an indented block', ('/home/red/cogs/enigmata.py', 82, 33, '    """Gets a random cat fact."""\n'))
+[29/11/2018 21:33] ERROR red on_command_error 369: Exception in command 'catfact'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 84, in catfact
+    await self.bot.send_typing(channel)
+NameError: name 'channel' is not defined
+[29/11/2018 21:33] ERROR red on_command_error 369: Exception in command 'catfact'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 83, in catfact
+    channel = ctx.message.channel
+NameError: name 'ctx' is not defined
+[29/11/2018 21:34] ERROR owner _reload 156: ('expected an indented block', ('/home/red/cogs/enigmata.py', 88, 16, "            fact = (await response.json())['fact']\n"))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 88
+    fact = (await response.json())['fact']
+       ^
+IndentationError: expected an indented block
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 950, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('expected an indented block', ('/home/red/cogs/enigmata.py', 88, 16, "            fact = (await response.json())['fact']\n"))
+[29/11/2018 21:37] ERROR red on_command_error 369: Exception in command 'reload'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 13, in <module>
+    from .catfact import CatFact
+ModuleNotFoundError: No module named 'cogs.catfact'
+[29/11/2018 21:42] ERROR owner _reload 156: ('expected an indented block', ('/home/red/cogs/enigmata.py', 82, 33, '    """Gets a random cat fact."""\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 82
+    """Gets a random cat fact."""
+                                ^
+IndentationError: expected an indented block
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 950, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('expected an indented block', ('/home/red/cogs/enigmata.py', 82, 33, '    """Gets a random cat fact."""\n'))
+[29/11/2018 21:43] ERROR red on_command_error 369: Exception in command 'catfact'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 82, in catfact
+    channel = message.channel
+NameError: name 'message' is not defined
+[29/11/2018 22:22] ERROR owner _reload 156: ('inconsistent use of tabs and spaces in indentation', ('/home/red/cogs/enigmata.py', 98, 50, '\t@checks.admin_or_permissions(manage_server=True)\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 98
+    @checks.admin_or_permissions(manage_server=True)
+                                                   ^
+TabError: inconsistent use of tabs and spaces in indentation
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 950, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('inconsistent use of tabs and spaces in indentation', ('/home/red/cogs/enigmata.py', 98, 50, '\t@checks.admin_or_permissions(manage_server=True)\n'))
+[29/11/2018 22:50] ERROR red on_command_error 369: Exception in command 'reload'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 7, in <module>
+    from __main__ import send_name_help
+ImportError: cannot import name 'send_name_help'
+[29/11/2018 22:58] ERROR red on_command_error 369: Exception in command 'enigmata save'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 184, in save
+    with open(self.images["server"][server.id][cmd], "wb") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/enigmata/453668709396119562/test/o.png'
+[29/11/2018 22:59] ERROR red on_command_error 369: Exception in command 'enigmata delete'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 144, in delete
+    os.remove(self.images["server"][server.id][cmd])
+FileNotFoundError: [Errno 2] No such file or directory: 'data/enigmata/453668709396119562/test/o.png'
+[29/11/2018 23:01] ERROR red on_command_error 369: Exception in command 'enigmata delete'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 144, in delete
+    os.remove(self.images["server"][server.id][cmd])
+FileNotFoundError: [Errno 2] No such file or directory: 'data/enigmata/453668709396119562/test/o.png'
+[29/11/2018 23:02] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[29/11/2018 23:02] ERROR owner load 74: Command color is already registered.
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 948, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/color.py", line 565, in setup
+    bot.add_cog(color(bot))
+  File "lib/discord/ext/commands/bot.py", line 655, in add_cog
+    self.add_command(member)
+  File "lib/discord/ext/commands/core.py", line 487, in add_command
+    raise discord.ClientException('Command {0.name} is already registered.'.format(command))
+discord.errors.ClientException: Command color is already registered.
+[29/11/2018 23:02] ERROR owner load 74: Command color is already registered.
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 948, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/color.py", line 565, in setup
+    bot.add_cog(color(bot))
+  File "lib/discord/ext/commands/bot.py", line 655, in add_cog
+    self.add_command(member)
+  File "lib/discord/ext/commands/core.py", line 487, in add_command
+    raise discord.ClientException('Command {0.name} is already registered.'.format(command))
+discord.errors.ClientException: Command color is already registered.
+[29/11/2018 23:02] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[29/11/2018 23:02] ERROR owner load 74: Command color is already registered.
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 948, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/color.py", line 565, in setup
+    bot.add_cog(color(bot))
+  File "lib/discord/ext/commands/bot.py", line 655, in add_cog
+    self.add_command(member)
+  File "lib/discord/ext/commands/core.py", line 487, in add_command
+    raise discord.ClientException('Command {0.name} is already registered.'.format(command))
+discord.errors.ClientException: Command color is already registered.
+[29/11/2018 23:11] ERROR red on_command_error 369: Exception in command 'colorset addroles'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/color.py", line 473, in colorset_addroles
+    rsn, rsl = self.get_roleset(server, roleset)
+  File "/home/red/cogs/color.py", line 130, in get_roleset
+    raise RolesetNotFound("Roleset '%s' does not exist." % name)
+cogs.color.RolesetNotFound: Roleset 'Colors' does not exist.
+[29/11/2018 23:13] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[29/11/2018 23:22] ERROR red on_command_error 369: Exception in command 'enigmata delete'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 144, in delete
+    os.remove(self.images["server"][server.id][cmd])
+FileNotFoundError: [Errno 2] No such file or directory: 'data/enigmata/453668709396119562/testo.png'
+[29/11/2018 23:22] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[30/11/2018 00:28] ERROR red on_command_error 369: Exception in command 'reload'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 948, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/enigmata.py", line 265, in setup
+    raise RuntimeError("Required for LoveCalc. Run `pip3 install beautifulsoup4`")
+RuntimeError: Required for LoveCalc. Run `pip3 install beautifulsoup4`
+[30/11/2018 00:28] ERROR red load_cogs 573: Required for LoveCalc. Run `pip3 install beautifulsoup4`
+Traceback (most recent call last):
+  File "red.py", line 570, in load_cogs
+    owner_cog._load_cog(extension)
+  File "/home/red/cogs/owner.py", line 948, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/enigmata.py", line 265, in setup
+    raise RuntimeError("Required for LoveCalc. Run `pip3 install beautifulsoup4`")
+RuntimeError: Required for LoveCalc. Run `pip3 install beautifulsoup4`
+[30/11/2018 00:28] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[30/11/2018 00:28] ERROR owner load 74: Required for LoveCalc. Run `pip3 install beautifulsoup4`
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 948, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/enigmata.py", line 265, in setup
+    raise RuntimeError("Required for LoveCalc. Run `pip3 install beautifulsoup4`")
+RuntimeError: Required for LoveCalc. Run `pip3 install beautifulsoup4`
+[30/11/2018 00:45] ERROR red on_command_error 369: Exception in command 'fun urban'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 175, in urban
+    search_terms = "+".join([encode(s) for s in search_terms])
+  File "/home/red/cogs/enigmata.py", line 175, in <listcomp>
+    search_terms = "+".join([encode(s) for s in search_terms])
+  File "/home/red/cogs/enigmata.py", line 158, in encode
+    return quote_plus(s, encoding='utf-8', errors='replace')
+NameError: name 'quote_plus' is not defined
+[30/11/2018 00:46] ERROR owner _reload 156: ('unexpected indent', ('/home/red/cogs/enigmata.py', 88, 8, '        """Source of the infamous DynoBotTM Catfacts"""\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 88
+    """Source of the infamous DynoBotTM Catfacts"""
+    ^
+IndentationError: unexpected indent
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 950, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('unexpected indent', ('/home/red/cogs/enigmata.py', 88, 8, '        """Source of the infamous DynoBotTM Catfacts"""\n'))
+[30/11/2018 00:46] ERROR owner _reload 156: ('unindent does not match any outer indentation level', ('/home/red/cogs/enigmata.py', 90, 13, '        try:\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 90
+    try:
+       ^
+IndentationError: unindent does not match any outer indentation level
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 950, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('unindent does not match any outer indentation level', ('/home/red/cogs/enigmata.py', 90, 13, '        try:\n'))
+[30/11/2018 00:55] ERROR red on_command_error 369: Exception in command 'reload'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 948, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/enigmata.py", line 549, in setup
+    loop.create_task(n.data_writer())
+NameError: name 'n' is not defined
+[30/11/2018 00:56] ERROR red on_command_error 369: Exception in command 'utility seen'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 235, in _seen
+    timestamp_then = datetime.fromtimestamp(data['TIMESTAMP'])
+AttributeError: module 'datetime' has no attribute 'fromtimestamp'
+[30/11/2018 01:14] ERROR red on_command_error 369: Exception in command 'sys info'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/sysinfo.py", line 119, in info
+    msg = "\n\n".join([cpu_cs, cpu_us, mem_vs, open_fs, disk_us, net_ios, boot_s])
+NameError: name 'cpu_us' is not defined
+[01/12/2018 20:13] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[03/12/2018 15:14] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[05/12/2018 04:04] ERROR red <module> 634: Fatal exception, attempting graceful logout
+Traceback (most recent call last):
+  File "lib/discord/gateway.py", line 425, in poll_event
+    msg = yield from self.recv()
+  File "lib/websockets/protocol.py", line 319, in recv
+    raise ConnectionClosed(self.close_code, self.close_reason)
+websockets.exceptions.ConnectionClosed: WebSocket connection is closed: no code, no reason.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "lib/discord/client.py", line 448, in connect
+    yield from self.ws.poll_event()
+  File "lib/discord/gateway.py", line 430, in poll_event
+    raise ResumeWebSocket() from e
+discord.gateway.ResumeWebSocket
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "red.py", line 614, in <module>
+    loop.run_until_complete(main(bot))
+  File "/usr/lib/python3.6/asyncio/base_events.py", line 473, in run_until_complete
+    return future.result()
+  File "red.py", line 603, in main
+    yield from bot.connect()
+  File "lib/discord/client.py", line 451, in connect
+    self.ws = yield from DiscordWebSocket.from_client(self, resume=True)
+  File "lib/discord/gateway.py", line 202, in from_client
+    timeout=60, loop=client.loop)
+  File "/usr/lib/python3.6/asyncio/tasks.py", line 358, in wait_for
+    return fut.result()
+  File "lib/discord/gateway.py", line 60, in _ensure_coroutine_connect
+    ws = yield from websockets.connect(gateway, loop=loop, klass=klass)
+  File "lib/websockets/py35/client.py", line 19, in __await__
+    return (yield from self.client)
+  File "lib/websockets/client.py", line 215, in connect
+    extra_headers=extra_headers)
+  File "lib/websockets/client.py", line 125, in handshake
+    raise InvalidStatusCode(status_code)
+websockets.exceptions.InvalidStatusCode: Status code not 101: 525
+[05/12/2018 04:04] ERROR red <module> 634: Fatal exception, attempting graceful logout
+Traceback (most recent call last):
+  File "red.py", line 614, in <module>
+    loop.run_until_complete(main(bot))
+  File "/usr/lib/python3.6/asyncio/base_events.py", line 473, in run_until_complete
+    return future.result()
+  File "red.py", line 603, in main
+    yield from bot.connect()
+  File "lib/discord/client.py", line 444, in connect
+    self.ws = yield from DiscordWebSocket.from_client(self)
+  File "lib/discord/gateway.py", line 202, in from_client
+    timeout=60, loop=client.loop)
+  File "/usr/lib/python3.6/asyncio/tasks.py", line 358, in wait_for
+    return fut.result()
+  File "lib/discord/gateway.py", line 60, in _ensure_coroutine_connect
+    ws = yield from websockets.connect(gateway, loop=loop, klass=klass)
+  File "lib/websockets/py35/client.py", line 19, in __await__
+    return (yield from self.client)
+  File "lib/websockets/client.py", line 215, in connect
+    extra_headers=extra_headers)
+  File "lib/websockets/client.py", line 125, in handshake
+    raise InvalidStatusCode(status_code)
+websockets.exceptions.InvalidStatusCode: Status code not 101: 525
+[05/12/2018 04:04] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[05/12/2018 18:56] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[05/12/2018 23:30] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[05/12/2018 23:56] ERROR red on_command_error 369: Exception in command 'mute server'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/mod.py", line 567, in server_mute
+    overwrites)
+  File "lib/discord/client.py", line 3068, in edit_channel_permissions
+    yield from self.http.edit_channel_permissions(channel.id, target.id, allow.value, deny.value, perm_type)
+  File "lib/discord/http.py", line 200, in request
+    raise HTTPException(r, data)
+discord.errors.HTTPException: INTERNAL SERVER ERROR (status code: 500): 500: Internal Server Error
+[06/12/2018 00:10] ERROR red on_command_error 369: Exception in command 'modlogset embed'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/modlog.py", line 78, in embed
+    if db[server.id]["embed"] == False:
+KeyError: '453668709396119562'
+[06/12/2018 00:11] ERROR red on_command_error 369: Exception in command 'modlogset embed'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/modlog.py", line 78, in embed
+    if db[server.id]["embed"] == False:
+KeyError: '453668709396119562'
+[06/12/2018 01:18] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[06/12/2018 01:19] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[06/12/2018 01:21] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[06/12/2018 01:21] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[06/12/2018 01:22] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[06/12/2018 01:22] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[06/12/2018 01:23] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[06/12/2018 01:23] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[06/12/2018 01:23] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[06/12/2018 01:24] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[06/12/2018 01:24] ERROR color __init__ 46: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/color.py", line 44, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[06/12/2018 01:25] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[06/12/2018 01:25] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[06/12/2018 01:26] ERROR selfrole __init__ 46: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/selfrole.py", line 44, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[06/12/2018 01:30] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[06/12/2018 01:30] ERROR selfrole __init__ 46: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/selfrole.py", line 44, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[06/12/2018 01:30] ERROR red load_cogs 573: ("(unicode error) 'unicodeescape' codec can't decode bytes in position 100-101: truncated \\uXXXX escape", ('/home/red/cogs/embedhelp.py', 97, 28, '                    title = "**Command list,** page {}n\\ Use **n/command** to see more uses of the command. e.g. **n/selfrole** n\\use **n/command subcommand** to see even more uses of a command. e.g. **n/selfrole set**".format(page)\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/embedhelp.py", line 97
+    title = "**Command list,** page {}n\ Use **n/command** to see more uses of the command. e.g. **n/selfrole** n\use **n/command subcommand** to see even more uses of a command. e.g. **n/selfrole set**".format(page)
+           ^
+SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 100-101: truncated \uXXXX escape
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "red.py", line 570, in load_cogs
+    owner_cog._load_cog(extension)
+  File "/home/red/cogs/owner.py", line 950, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ("(unicode error) 'unicodeescape' codec can't decode bytes in position 100-101: truncated \\uXXXX escape", ('/home/red/cogs/embedhelp.py', 97, 28, '                    title = "**Command list,** page {}n\\ Use **n/command** to see more uses of the command. e.g. **n/selfrole** n\\use **n/command subcommand** to see even more uses of a command. e.g. **n/selfrole set**".format(page)\n'))
+[06/12/2018 01:30] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[06/12/2018 01:34] ERROR owner load 69: ("(unicode error) 'unicodeescape' codec can't decode bytes in position 72-73: truncated \\uXXXX escape", ('/home/red/cogs/embedhelp.py', 7, 9, 'usecase= "Use **n/command** to see more uses of the command. e.g. **n/selfrole** n\\use **n/command subcommand** to see even more uses of a command. e.g. **n/selfrole set**"\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/embedhelp.py", line 7
+    usecase= "Use **n/command** to see more uses of the command. e.g. **n/selfrole** n\use **n/command subcommand** to see even more uses of a command. e.g. **n/selfrole set**"
+            ^
+SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 72-73: truncated \uXXXX escape
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 950, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ("(unicode error) 'unicodeescape' codec can't decode bytes in position 72-73: truncated \\uXXXX escape", ('/home/red/cogs/embedhelp.py', 7, 9, 'usecase= "Use **n/command** to see more uses of the command. e.g. **n/selfrole** n\\use **n/command subcommand** to see even more uses of a command. e.g. **n/selfrole set**"\n'))
+[06/12/2018 01:35] ERROR owner load 69: ("(unicode error) 'unicodeescape' codec can't decode bytes in position 72-73: truncated \\uXXXX escape", ('/home/red/cogs/embedhelp.py', 7, 10, 'usecase = "Use **n/command** to see more uses of the command. e.g. **n/selfrole** n\\use **n/command subcommand** to see even more uses of a command. e.g. **n/selfrole set**"\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 946, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/embedhelp.py", line 7
+    usecase = "Use **n/command** to see more uses of the command. e.g. **n/selfrole** n\use **n/command subcommand** to see even more uses of a command. e.g. **n/selfrole set**"
+             ^
+SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 72-73: truncated \uXXXX escape
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 950, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ("(unicode error) 'unicodeescape' codec can't decode bytes in position 72-73: truncated \\uXXXX escape", ('/home/red/cogs/embedhelp.py', 7, 10, 'usecase = "Use **n/command** to see more uses of the command. e.g. **n/selfrole** n\\use **n/command subcommand** to see even more uses of a command. e.g. **n/selfrole set**"\n'))
+[06/12/2018 01:37] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[06/12/2018 01:37] ERROR selfrole __init__ 46: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/selfrole.py", line 44, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[06/12/2018 01:37] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[06/12/2018 01:49] ERROR selfrole __init__ 46: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/selfrole.py", line 44, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[06/12/2018 01:52] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[06/12/2018 01:52] ERROR selfrole __init__ 46: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/selfrole.py", line 44, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[06/12/2018 01:52] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[06/12/2018 01:55] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[06/12/2018 01:55] ERROR selfrole __init__ 46: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/selfrole.py", line 44, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[06/12/2018 01:55] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[06/12/2018 01:58] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[06/12/2018 01:58] ERROR selfrole __init__ 46: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/selfrole.py", line 44, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[06/12/2018 01:58] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[06/12/2018 02:00] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[06/12/2018 02:00] ERROR selfrole __init__ 46: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/selfrole.py", line 44, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[06/12/2018 02:00] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[06/12/2018 02:10] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[06/12/2018 02:12] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[06/12/2018 02:14] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[06/12/2018 02:22] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[06/12/2018 02:22] ERROR selfrole __init__ 46: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/selfrole.py", line 44, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[06/12/2018 02:22] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[07/12/2018 04:04] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[07/12/2018 04:04] ERROR selfrole __init__ 46: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/selfrole.py", line 44, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[07/12/2018 04:04] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[08/12/2018 00:19] ERROR red on_command_error 369: Exception in command 'fun soulmate'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 122, in soulmate
+    str(randint(0, 100)) + "%!")
+NameError: name 'randint' is not defined
+[08/12/2018 00:22] ERROR owner _reload 156: ('invalid syntax', ('/home/red/cogs/enigmata.py', 8, 75, 'from .utils.chat_formatting import escape_mass_mentions, italics, pagify, *\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 952, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 8
+    from .utils.chat_formatting import escape_mass_mentions, italics, pagify, *
+                                                                              ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 956, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('invalid syntax', ('/home/red/cogs/enigmata.py', 8, 75, 'from .utils.chat_formatting import escape_mass_mentions, italics, pagify, *\n'))
+[08/12/2018 00:31] ERROR owner _reload 156: ('invalid syntax', ('/home/red/cogs/enigmata.py', 8, 75, 'from .utils.chat_formatting import escape_mass_mentions, italics, pagify, *\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 952, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 8
+    from .utils.chat_formatting import escape_mass_mentions, italics, pagify, *
+                                                                              ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 956, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('invalid syntax', ('/home/red/cogs/enigmata.py', 8, 75, 'from .utils.chat_formatting import escape_mass_mentions, italics, pagify, *\n'))
+[08/12/2018 00:32] ERROR red on_command_error 369: Exception in command 'traceback'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/owner.py", line 923, in traceback
+    await self.bot.send_message(destination, box(page, lang="py"))
+  File "red.py", line 92, in send_message
+    return await super().send_message(*args, **kwargs)
+  File "lib/discord/client.py", line 1151, in send_message
+    data = yield from self.http.send_message(channel_id, content, guild_id=guild_id, tts=tts, embed=embed)
+  File "lib/discord/http.py", line 200, in request
+    raise HTTPException(r, data)
+discord.errors.HTTPException: INTERNAL SERVER ERROR (status code: 500): 500: Internal Server Error
+[08/12/2018 00:33] ERROR red load_cogs 573: ('invalid syntax', ('/home/red/cogs/enigmata.py', 8, 75, 'from .utils.chat_formatting import escape_mass_mentions, italics, pagify, *\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 952, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 8
+    from .utils.chat_formatting import escape_mass_mentions, italics, pagify, *
+                                                                              ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "red.py", line 570, in load_cogs
+    owner_cog._load_cog(extension)
+  File "/home/red/cogs/owner.py", line 956, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('invalid syntax', ('/home/red/cogs/enigmata.py', 8, 75, 'from .utils.chat_formatting import escape_mass_mentions, italics, pagify, *\n'))
+[08/12/2018 00:33] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[08/12/2018 00:33] ERROR selfrole __init__ 46: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/selfrole.py", line 44, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[08/12/2018 00:33] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[08/12/2018 00:33] ERROR owner load 69: ('invalid syntax', ('/home/red/cogs/enigmata.py', 8, 75, 'from .utils.chat_formatting import escape_mass_mentions, italics, pagify, *\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 952, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 8
+    from .utils.chat_formatting import escape_mass_mentions, italics, pagify, *
+                                                                              ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 956, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('invalid syntax', ('/home/red/cogs/enigmata.py', 8, 75, 'from .utils.chat_formatting import escape_mass_mentions, italics, pagify, *\n'))
+[08/12/2018 00:33] ERROR red on_command_error 369: Exception in command 'traceback'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/owner.py", line 925, in traceback
+    await self.bot.say("No exception has occurred yet.")
+  File "lib/discord/ext/commands/bot.py", line 309, in _augmented_msg
+    msg = yield from coro
+  File "red.py", line 92, in send_message
+    return await super().send_message(*args, **kwargs)
+  File "lib/discord/client.py", line 1151, in send_message
+    data = yield from self.http.send_message(channel_id, content, guild_id=guild_id, tts=tts, embed=embed)
+  File "lib/discord/http.py", line 200, in request
+    raise HTTPException(r, data)
+discord.errors.HTTPException: INTERNAL SERVER ERROR (status code: 500): 500: Internal Server Error
+[08/12/2018 05:03] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[08/12/2018 05:03] ERROR selfrole __init__ 46: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/selfrole.py", line 44, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[08/12/2018 05:03] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[08/12/2018 18:24] ERROR red load_cogs 573: 'Enigmata' object has no attribute 'data_writer'
+Traceback (most recent call last):
+  File "red.py", line 570, in load_cogs
+    owner_cog._load_cog(extension)
+  File "/home/red/cogs/owner.py", line 954, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/enigmata.py", line 207, in setup
+    loop.create_task(n.data_writer())
+AttributeError: 'Enigmata' object has no attribute 'data_writer'
+[08/12/2018 18:24] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[08/12/2018 18:24] ERROR selfrole __init__ 46: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/selfrole.py", line 44, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[08/12/2018 18:24] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[08/12/2018 18:25] ERROR owner load 74: 'Enigmata' object has no attribute 'data_writer'
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 954, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/enigmata.py", line 207, in setup
+    loop.create_task(n.data_writer())
+AttributeError: 'Enigmata' object has no attribute 'data_writer'
+[08/12/2018 18:26] ERROR owner load 69: ('expected an indented block', ('/home/red/cogs/entertainment.py', 18, 8, '    self.bot = bot\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 952, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/entertainment.py", line 18
+    self.bot = bot
+       ^
+IndentationError: expected an indented block
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 956, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('expected an indented block', ('/home/red/cogs/entertainment.py', 18, 8, '    self.bot = bot\n'))
+[08/12/2018 18:28] ERROR owner load 74: name 'DB_VERSION' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 954, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/utility.py", line 223, in setup
+    check_file()
+  File "/home/red/cogs/utility.py", line 198, in check_file
+    data['db_version'] = DB_VERSION
+NameError: name 'DB_VERSION' is not defined
+[08/12/2018 18:28] ERROR owner load 74: name 'loop' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 954, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/utility.py", line 225, in setup
+    loop.create_task(n.data_writer())
+NameError: name 'loop' is not defined
+[08/12/2018 18:31] ERROR owner load 74: name 'n' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 954, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/utility.py", line 226, in setup
+    loop.create_task(n.data_writer())
+NameError: name 'n' is not defined
+[08/12/2018 18:32] ERROR owner load 74: name 'Enigmata' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 954, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/utility.py", line 225, in setup
+    n = Enigmata(bot)
+NameError: name 'Enigmata' is not defined
+[08/12/2018 18:34] ERROR red on_command_error 369: Exception in command 'serverinfo'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/utility.py", line 171, in serverinfo
+    colour = ''.join([choice('0123456789ABCDEF') for x in range(6)])
+  File "/home/red/cogs/utility.py", line 171, in <listcomp>
+    colour = ''.join([choice('0123456789ABCDEF') for x in range(6)])
+NameError: name 'choice' is not defined
+[08/12/2018 19:03] ERROR red on_command_error 369: Exception in command 'reload'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 954, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/utility.py", line 308, in setup
+    n = Utility(bot)
+  File "/home/red/cogs/utility.py", line 29, in __init__
+    self.say = dataIO.load_json("data/enigmata/say.json")
+  File "/home/red/cogs/utils/dataIO.py", line 32, in load_json
+    return self._read_json(filename)
+  File "/home/red/cogs/utils/dataIO.py", line 45, in _read_json
+    with open(filename, encoding='utf-8', mode="r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/enigmata/say.json'
+[08/12/2018 19:03] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[08/12/2018 19:03] ERROR red load_cogs 573: [Errno 2] No such file or directory: 'data/enigmata/say.json'
+Traceback (most recent call last):
+  File "red.py", line 570, in load_cogs
+    owner_cog._load_cog(extension)
+  File "/home/red/cogs/owner.py", line 954, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/utility.py", line 308, in setup
+    n = Utility(bot)
+  File "/home/red/cogs/utility.py", line 29, in __init__
+    self.say = dataIO.load_json("data/enigmata/say.json")
+  File "/home/red/cogs/utils/dataIO.py", line 32, in load_json
+    return self._read_json(filename)
+  File "/home/red/cogs/utils/dataIO.py", line 45, in _read_json
+    with open(filename, encoding='utf-8', mode="r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/enigmata/say.json'
+[08/12/2018 19:03] ERROR selfrole __init__ 46: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/selfrole.py", line 44, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[08/12/2018 19:03] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[08/12/2018 19:04] ERROR owner load 74: [Errno 2] No such file or directory: 'data/enigmata/say.json'
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 954, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/utility.py", line 308, in setup
+    n = Utility(bot)
+  File "/home/red/cogs/utility.py", line 29, in __init__
+    self.say = dataIO.load_json("data/enigmata/say.json")
+  File "/home/red/cogs/utils/dataIO.py", line 32, in load_json
+    return self._read_json(filename)
+  File "/home/red/cogs/utils/dataIO.py", line 45, in _read_json
+    with open(filename, encoding='utf-8', mode="r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/enigmata/say.json'
+[08/12/2018 19:05] ERROR red on_command_error 369: Exception in command 'reload'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 954, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/utility.py", line 308, in setup
+    n = Utility(bot)
+  File "/home/red/cogs/utility.py", line 29, in __init__
+    self.say = dataIO.load_json("data/enigmata/say.json")
+  File "/home/red/cogs/utils/dataIO.py", line 32, in load_json
+    return self._read_json(filename)
+  File "/home/red/cogs/utils/dataIO.py", line 46, in _read_json
+    data = json.load(f)
+  File "/usr/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+[08/12/2018 19:05] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[08/12/2018 19:05] ERROR selfrole __init__ 46: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/selfrole.py", line 44, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[08/12/2018 19:05] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[08/12/2018 19:06] ERROR owner load 74: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 954, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/utility.py", line 308, in setup
+    n = Utility(bot)
+  File "/home/red/cogs/utility.py", line 29, in __init__
+    self.say = dataIO.load_json("data/enigmata/say.json")
+  File "/home/red/cogs/utils/dataIO.py", line 32, in load_json
+    return self._read_json(filename)
+  File "/home/red/cogs/utils/dataIO.py", line 46, in _read_json
+    data = json.load(f)
+  File "/usr/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+[08/12/2018 19:09] ERROR red on_command_error 369: Exception in command 'say'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/utility.py", line 255, in bot_say
+    if ctx.message.author.id in self.say[ctx.message.server.id]["USERS"] or get_role(ctx, self.say[ctx.message.server.id]["ROLE"])  in ctx.message.author.roles:
+TypeError: string indices must be integers
+[08/12/2018 19:10] ERROR red on_command_error 369: Exception in command 'setsay list'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/utility.py", line 190, in say_list
+    for user_id in self.say[ctx.message.server.id]["USERS"]:
+TypeError: string indices must be integers
+[08/12/2018 19:15] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[08/12/2018 19:15] ERROR red load_cogs 573: Expecting ',' delimiter: line 4 column 9 (char 59)
+Traceback (most recent call last):
+  File "red.py", line 570, in load_cogs
+    owner_cog._load_cog(extension)
+  File "/home/red/cogs/owner.py", line 954, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/utility.py", line 308, in setup
+    n = Utility(bot)
+  File "/home/red/cogs/utility.py", line 29, in __init__
+    self.say = dataIO.load_json("data/enigmata/say.json")
+  File "/home/red/cogs/utils/dataIO.py", line 32, in load_json
+    return self._read_json(filename)
+  File "/home/red/cogs/utils/dataIO.py", line 46, in _read_json
+    data = json.load(f)
+  File "/usr/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 355, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting ',' delimiter: line 4 column 9 (char 59)
+[08/12/2018 19:15] ERROR selfrole __init__ 46: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/selfrole.py", line 44, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[08/12/2018 19:16] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[08/12/2018 19:16] ERROR owner load 74: Expecting ',' delimiter: line 4 column 9 (char 59)
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 954, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/utility.py", line 308, in setup
+    n = Utility(bot)
+  File "/home/red/cogs/utility.py", line 29, in __init__
+    self.say = dataIO.load_json("data/enigmata/say.json")
+  File "/home/red/cogs/utils/dataIO.py", line 32, in load_json
+    return self._read_json(filename)
+  File "/home/red/cogs/utils/dataIO.py", line 46, in _read_json
+    data = json.load(f)
+  File "/usr/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 355, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting ',' delimiter: line 4 column 9 (char 59)
+[08/12/2018 19:16] ERROR red on_command_error 369: Exception in command 'reload'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 954, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/utility.py", line 308, in setup
+    n = Utility(bot)
+  File "/home/red/cogs/utility.py", line 29, in __init__
+    self.say = dataIO.load_json("data/enigmata/say.json")
+  File "/home/red/cogs/utils/dataIO.py", line 32, in load_json
+    return self._read_json(filename)
+  File "/home/red/cogs/utils/dataIO.py", line 46, in _read_json
+    data = json.load(f)
+  File "/usr/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 355, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting ',' delimiter: line 4 column 9 (char 59)
+[08/12/2018 19:17] ERROR red on_command_error 369: Exception in command 'setsay list'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/utility.py", line 190, in say_list
+    for user_id in self.say[ctx.message.server.id]["USERS"]:
+KeyError: 'USERS'
+[08/12/2018 19:17] ERROR red on_command_error 369: Exception in command 'setsay add'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/utility.py", line 210, in say_add
+    self.say[ctx.message.server.id]["USERS"].append(user.id)
+KeyError: 'USERS'
+[08/12/2018 19:19] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[08/12/2018 19:19] ERROR selfrole __init__ 46: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/selfrole.py", line 44, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[08/12/2018 19:19] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[08/12/2018 19:19] ERROR owner load 74: Command setsay is already registered.
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 954, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/test.py", line 148, in setup
+    bot.add_cog(n)
+  File "lib/discord/ext/commands/bot.py", line 655, in add_cog
+    self.add_command(member)
+  File "lib/discord/ext/commands/core.py", line 487, in add_command
+    raise discord.ClientException('Command {0.name} is already registered.'.format(command))
+discord.errors.ClientException: Command setsay is already registered.
+[08/12/2018 19:19] ERROR owner load 74: Command speak is already registered.
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 954, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/test.py", line 148, in setup
+    bot.add_cog(n)
+  File "lib/discord/ext/commands/bot.py", line 655, in add_cog
+    self.add_command(member)
+  File "lib/discord/ext/commands/core.py", line 487, in add_command
+    raise discord.ClientException('Command {0.name} is already registered.'.format(command))
+discord.errors.ClientException: Command speak is already registered.
+[08/12/2018 19:19] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[08/12/2018 19:19] ERROR selfrole __init__ 46: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/selfrole.py", line 44, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[08/12/2018 19:19] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[08/12/2018 19:21] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[08/12/2018 19:21] ERROR selfrole __init__ 46: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/selfrole.py", line 44, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[08/12/2018 19:21] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[08/12/2018 19:21] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[08/12/2018 19:21] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[08/12/2018 19:23] ERROR punish __init__ 254: name 'CogAnalytics' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/punish.py", line 252, in __init__
+    self.analytics = CogAnalytics(self)
+NameError: name 'CogAnalytics' is not defined
+[08/12/2018 19:23] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[08/12/2018 19:23] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[08/12/2018 19:24] ERROR owner load 74: name 'check_files' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 954, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/entertainment.py", line 117, in setup
+    check_files()
+NameError: name 'check_files' is not defined
+[08/12/2018 19:41] ERROR red on_command_error 369: Exception in command 'reload'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 954, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/entertainment.py", line 115, in setup
+    bot.add_cog(Entertainment(bot))
+  File "/home/red/cogs/entertainment.py", line 17, in __init__
+    self.fun.love = 0
+AttributeError: 'Entertainment' object has no attribute 'fun'
+[08/12/2018 19:43] ERROR owner load 74: 'Entertainment' object has no attribute 'fun'
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 954, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/entertainment.py", line 115, in setup
+    bot.add_cog(Entertainment(bot))
+  File "/home/red/cogs/entertainment.py", line 17, in __init__
+    self.fun.love = 0
+AttributeError: 'Entertainment' object has no attribute 'fun'
+[08/12/2018 19:44] ERROR red on_command_error 369: Exception in command 'soulmate'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/entertainment.py", line 36, in soulmate
+    self.commands.soulmate += 1
+AttributeError: 'Entertainment' object has no attribute 'commands'
+[08/12/2018 19:44] ERROR red on_command_error 369: Exception in command 'soulmate'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/entertainment.py", line 36, in soulmate
+    self.commands.soulmate += 1
+AttributeError: 'Entertainment' object has no attribute 'commands'
+[08/12/2018 19:57] ERROR red on_command_error 369: Exception in command 'reload'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 954, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/entertainment.py", line 125, in setup
+    check_file()
+  File "/home/red/cogs/entertainment.py", line 121, in check_file
+    dataIO.save_json(mate)
+TypeError: save_json() missing 1 required positional argument: 'data'
+[08/12/2018 19:57] ERROR red load_cogs 573: save_json() missing 1 required positional argument: 'data'
+Traceback (most recent call last):
+  File "red.py", line 570, in load_cogs
+    owner_cog._load_cog(extension)
+  File "/home/red/cogs/owner.py", line 954, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/entertainment.py", line 125, in setup
+    check_file()
+  File "/home/red/cogs/entertainment.py", line 121, in check_file
+    dataIO.save_json(mate)
+TypeError: save_json() missing 1 required positional argument: 'data'
+[08/12/2018 19:57] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[08/12/2018 19:57] ERROR owner load 74: save_json() missing 1 required positional argument: 'data'
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 954, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/entertainment.py", line 125, in setup
+    check_file()
+  File "/home/red/cogs/entertainment.py", line 121, in check_file
+    dataIO.save_json(mate)
+TypeError: save_json() missing 1 required positional argument: 'data'
+[08/12/2018 19:59] ERROR red on_command_error 369: Exception in command 'soulmate'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/entertainment.py", line 38, in soulmate
+    await self.bot.say(randchoice(self.mate))
+  File "/usr/lib/python3.6/random.py", line 261, in choice
+    return seq[i]
+KeyError: 0
+[08/12/2018 20:04] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[08/12/2018 20:04] ERROR red on_command_error 369: Exception in command 'soulmate'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/entertainment.py", line 38, in soulmate
+    await self.bot.say(randchoice(self.mate))
+  File "/usr/lib/python3.6/random.py", line 260, in choice
+    raise IndexError('Cannot choose from an empty sequence') from None
+IndexError: Cannot choose from an empty sequence
+[08/12/2018 20:05] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[08/12/2018 20:09] ERROR red on_command_error 369: Exception in command 'soulmate'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/entertainment.py", line 38, in soulmate
+    await self.bot.say(randchoice(self.mate))
+  File "/usr/lib/python3.6/random.py", line 260, in choice
+    raise IndexError('Cannot choose from an empty sequence') from None
+IndexError: Cannot choose from an empty sequence
+[08/12/2018 20:10] ERROR red on_command_error 369: Exception in command 'soulmate'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/entertainment.py", line 38, in soulmate
+    await self.bot.say(randchoice(self.mate))
+  File "/usr/lib/python3.6/random.py", line 260, in choice
+    raise IndexError('Cannot choose from an empty sequence') from None
+IndexError: Cannot choose from an empty sequence
+[08/12/2018 20:10] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[08/12/2018 20:12] ERROR red load_cogs 573: ('unexpected character after line continuation character', ('/home/red/cogs/entertainment.py', 121, 91, '        dataIO.save_json(mate, [n\\"I wish I could love you more, but I can\'t"n\\"testing"])\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 952, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/entertainment.py", line 121
+    dataIO.save_json(mate, [n\"I wish I could love you more, but I can't"n\"testing"])
+                                                                                     ^
+SyntaxError: unexpected character after line continuation character
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "red.py", line 570, in load_cogs
+    owner_cog._load_cog(extension)
+  File "/home/red/cogs/owner.py", line 956, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('unexpected character after line continuation character', ('/home/red/cogs/entertainment.py', 121, 91, '        dataIO.save_json(mate, [n\\"I wish I could love you more, but I can\'t"n\\"testing"])\n'))
+[08/12/2018 20:12] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[08/12/2018 20:12] ERROR owner load 69: ('unexpected character after line continuation character', ('/home/red/cogs/entertainment.py', 121, 91, '        dataIO.save_json(mate, [n\\"I wish I could love you more, but I can\'t"n\\"testing"])\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 952, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/entertainment.py", line 121
+    dataIO.save_json(mate, [n\"I wish I could love you more, but I can't"n\"testing"])
+                                                                                     ^
+SyntaxError: unexpected character after line continuation character
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 956, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('unexpected character after line continuation character', ('/home/red/cogs/entertainment.py', 121, 91, '        dataIO.save_json(mate, [n\\"I wish I could love you more, but I can\'t"n\\"testing"])\n'))
+[08/12/2018 20:13] ERROR owner _reload 156: ('invalid syntax', ('/home/red/cogs/entertainment.py', 121, 76, '        dataIO.save_json(mate, ["I wish I could love you more, but I can\'t"n\\"testing"])\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 952, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/entertainment.py", line 121
+    dataIO.save_json(mate, ["I wish I could love you more, but I can't"n\"testing"])
+                                                                       ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 956, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('invalid syntax', ('/home/red/cogs/entertainment.py', 121, 76, '        dataIO.save_json(mate, ["I wish I could love you more, but I can\'t"n\\"testing"])\n'))
+[08/12/2018 20:14] ERROR red on_command_error 369: Exception in command 'reload'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 954, in _load_cog
+    self.bot.load_extension(mod_obj.__name__)
+  File "lib/discord/ext/commands/bot.py", line 738, in load_extension
+    lib.setup(self)
+  File "/home/red/cogs/entertainment.py", line 112, in setup
+    check_folder()
+NameError: name 'check_folder' is not defined
+[08/12/2018 20:15] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[08/12/2018 20:15] ERROR red on_command_error 369: Exception in command 'soulmate'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/entertainment.py", line 37, in soulmate
+    await self.bot.say(randchoice("I wish I could love you more than this. But I am just an AI", "Testing"))
+TypeError: choice() takes 2 positional arguments but 3 were given
+[08/12/2018 20:35] ERROR owner _reload 156: ('inconsistent use of tabs and spaces in indentation', ('/home/red/cogs/entertainment.py', 37, 88, "\t\t'I could stare at you forever and still feel like I have not gotten enough of you.', \n"))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 952, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/entertainment.py", line 37
+    'I could stare at you forever and still feel like I have not gotten enough of you.',
+                                                                                        ^
+TabError: inconsistent use of tabs and spaces in indentation
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 956, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('inconsistent use of tabs and spaces in indentation', ('/home/red/cogs/entertainment.py', 37, 88, "\t\t'I could stare at you forever and still feel like I have not gotten enough of you.', \n"))
+[08/12/2018 20:48] ERROR red on_command_error 369: Exception in command 'enigmata save'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 170, in save
+    async with self.session.get(msg.attachments[0]["url"]) as resp:
+AttributeError: 'Enigmata' object has no attribute 'session'
+[08/12/2018 20:52] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[08/12/2018 20:54] ERROR owner _reload 156: ('invalid syntax', ('/home/red/cogs/enigmata.py', 100, 32, '                msg += "`{}`\\n")\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 952, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 100
+    msg += "`{}`\n")
+                   ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 956, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('invalid syntax', ('/home/red/cogs/enigmata.py', 100, 32, '                msg += "`{}`\\n")\n'))
+[08/12/2018 20:56] ERROR owner _reload 156: ('invalid syntax', ('/home/red/cogs/enigmata.py', 100, 35, '                msg += "`{}`\\n"file\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 952, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 100
+    msg += "`{}`\n"file
+                      ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 956, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('invalid syntax', ('/home/red/cogs/enigmata.py', 100, 35, '                msg += "`{}`\\n"file\n'))
+[08/12/2018 20:57] ERROR red on_command_error 369: Exception in command 'enigmata select'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 100, in select
+    msg += "`{}`\n"(file)
+TypeError: 'str' object is not callable
+[08/12/2018 20:59] ERROR red on_command_error 369: Exception in command 'enigmata select'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 94, in select
+    if os.listdir("data/enigmata/server.id") == []:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/enigmata/server.id'
+[08/12/2018 21:00] ERROR owner _reload 156: ('invalid syntax', ('/home/red/cogs/enigmata.py', 94, 48, '            if os.listdir("data/enigmata/"server.id"") == []:\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 952, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 94
+    if os.listdir("data/enigmata/"server.id"") == []:
+                                       ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 956, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('invalid syntax', ('/home/red/cogs/enigmata.py', 94, 48, '            if os.listdir("data/enigmata/"server.id"") == []:\n'))
+[08/12/2018 21:14] ERROR owner _reload 156: ('invalid syntax', ('/home/red/cogs/enigmata.py', 92, 26, '        channel = channel: discord.Channel\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 952, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 92
+    channel = channel: discord.Channel
+                     ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 956, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('invalid syntax', ('/home/red/cogs/enigmata.py', 92, 26, '        channel = channel: discord.Channel\n'))
+[08/12/2018 21:18] ERROR owner _reload 156: ('invalid syntax', ('/home/red/cogs/enigmata.py', 94, 66, '            await self.bot.say"Please use {prefixes}enigmata list"\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 952, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 94
+    await self.bot.say"Please use {prefixes}enigmata list"
+                                                         ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 956, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('invalid syntax', ('/home/red/cogs/enigmata.py', 94, 66, '            await self.bot.say"Please use {prefixes}enigmata list"\n'))
+[08/12/2018 21:21] ERROR red on_command_error 369: Exception in command 'enigmata select'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 93, in select
+    if file == None:
+UnboundLocalError: local variable 'file' referenced before assignment
+[08/12/2018 21:25] ERROR red on_command_error 369: Exception in command 'enigmata select'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 93, in select
+    if file == None:
+UnboundLocalError: local variable 'file' referenced before assignment
+[08/12/2018 21:27] ERROR red on_command_error 369: Exception in command 'enigmata select'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 93, in select
+    if file == None:
+UnboundLocalError: local variable 'file' referenced before assignment
+[08/12/2018 21:28] ERROR red on_command_error 369: Exception in command 'reload'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 952, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 14, in <module>
+    class Enigmata:
+  File "/home/red/cogs/enigmata.py", line 87, in Enigmata
+    async def select(self, ctx, file=none, *, comment=None):
+NameError: name 'none' is not defined
+[08/12/2018 21:28] ERROR red load_cogs 573: name 'none' is not defined
+Traceback (most recent call last):
+  File "red.py", line 570, in load_cogs
+    owner_cog._load_cog(extension)
+  File "/home/red/cogs/owner.py", line 952, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 14, in <module>
+    class Enigmata:
+  File "/home/red/cogs/enigmata.py", line 87, in Enigmata
+    async def select(self, ctx, file=none, *, comment=None):
+NameError: name 'none' is not defined
+[08/12/2018 21:28] INFO react_roles _init_bot_manipulation 157: Cached bindings: 
+[08/12/2018 21:28] ERROR owner load 74: name 'none' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 952, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 14, in <module>
+    class Enigmata:
+  File "/home/red/cogs/enigmata.py", line 87, in Enigmata
+    async def select(self, ctx, file=none, *, comment=None):
+NameError: name 'none' is not defined
+[08/12/2018 21:29] ERROR owner load 74: name 'none' is not defined
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 65, in load
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 952, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 14, in <module>
+    class Enigmata:
+  File "/home/red/cogs/enigmata.py", line 87, in Enigmata
+    async def select(self, ctx, file=none, *, comment=None):
+NameError: name 'none' is not defined
+[08/12/2018 21:32] ERROR red on_command_error 369: Exception in command 'enigmata select'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 100, in select
+    msg += "`{}`\n"(file)
+TypeError: 'str' object is not callable
+[08/12/2018 21:37] ERROR red on_command_error 369: Exception in command 'enigmata select'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 100, in select
+    msg += "`{}`\n"(file)
+TypeError: 'str' object is not callable
+[08/12/2018 21:39] ERROR red on_command_error 369: Exception in command 'enigmata select'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 100, in select
+    msg += "`{}`\n"(file)
+TypeError: 'str' object is not callable
+[08/12/2018 21:40] ERROR red on_command_error 369: Exception in command 'enigmata select'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 100, in select
+    msg += "`{}`\n"(file)
+TypeError: 'str' object is not callable
+[08/12/2018 21:41] ERROR red on_command_error 369: Exception in command 'enigmata select'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 100, in select
+    msg += "`{}`\n"(file)
+TypeError: 'str' object is not callable
+[08/12/2018 21:41] ERROR red on_command_error 369: Exception in command 'enigmata select'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 100, in select
+    msg += "`{}`\n"(file)
+TypeError: 'str' object is not callable
+[08/12/2018 21:42] ERROR owner _reload 156: ('invalid syntax', ('/home/red/cogs/enigmata.py', 101, 38, '            await self.bot.say(msg - .format)\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 952, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 101
+    await self.bot.say(msg - .format)
+                             ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 956, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('invalid syntax', ('/home/red/cogs/enigmata.py', 101, 38, '            await self.bot.say(msg - .format)\n'))
+[08/12/2018 21:43] ERROR red on_command_error 369: Exception in command 'enigmata select'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 100, in select
+    msg += "`{}`\n".format(cmd)
+NameError: name 'cmd' is not defined
+[08/12/2018 21:45] ERROR owner _reload 156: ('unexpected indent', ('/home/red/cogs/enigmata.py', 102, 16, '                msg += "`{}`\\n".format(cmd)\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 952, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 102
+    msg += "`{}`\n".format(cmd)
+    ^
+IndentationError: unexpected indent
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 956, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('unexpected indent', ('/home/red/cogs/enigmata.py', 102, 16, '                msg += "`{}`\\n".format(cmd)\n'))
+[08/12/2018 21:46] ERROR red on_command_error 369: Exception in command 'enigmata select'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 99, in select
+    cmd = cmd.lower()
+UnboundLocalError: local variable 'cmd' referenced before assignment
+[08/12/2018 21:47] ERROR red on_command_error 369: Exception in command 'enigmata select'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 99, in select
+    cmd = cmd.lower()
+AttributeError: 'NoneType' object has no attribute 'lower'
+[08/12/2018 21:48] ERROR red on_command_error 369: Exception in command 'enigmata select'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+TypeError: select() missing 1 required keyword-only argument: 'cmd'
+[08/12/2018 21:53] ERROR owner _reload 156: ('invalid syntax', ('/home/red/cogs/enigmata.py', 100, 35, '                msg += "`{}`\\n"file\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 952, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 100
+    msg += "`{}`\n"file
+                      ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 956, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('invalid syntax', ('/home/red/cogs/enigmata.py', 100, 35, '                msg += "`{}`\\n"file\n'))
+[08/12/2018 21:54] ERROR red on_command_error 369: Exception in command 'enigmata select'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 100, in select
+    msg += "`{}`\n"()
+TypeError: 'str' object is not callable
+[08/12/2018 21:55] ERROR red on_command_error 369: Exception in command 'enigmata select'
+Traceback (most recent call last):
+  File "lib/discord/ext/commands/core.py", line 50, in wrapped
+    ret = yield from coro(*args, **kwargs)
+  File "/home/red/cogs/enigmata.py", line 100, in select
+    msg += "`{}`\n".format()
+IndexError: tuple index out of range
+[08/12/2018 21:56] ERROR owner _reload 156: ('invalid syntax', ('/home/red/cogs/enigmata.py', 100, 33, '                msg += "`{}`\\n".(file)\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 952, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 100
+    msg += "`{}`\n".(file)
+                    ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 956, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('invalid syntax', ('/home/red/cogs/enigmata.py', 100, 33, '                msg += "`{}`\\n".(file)\n'))
+[08/12/2018 22:00] ERROR owner _reload 156: ('invalid syntax', ('/home/red/cogs/enigmata.py', 94, 69, '            if os.listdir("data/enigmata/{}".format(server.id) == []:\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 952, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 94
+    if os.listdir("data/enigmata/{}".format(server.id) == []:
+                                                            ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 956, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('invalid syntax', ('/home/red/cogs/enigmata.py', 94, 69, '            if os.listdir("data/enigmata/{}".format(server.id) == []:\n'))
+[08/12/2018 22:00] ERROR owner _reload 156: ('invalid syntax', ('/home/red/cogs/enigmata.py', 94, 69, '            if os.listdir("data/enigmata/{}".format(server.id) == []:\n'))
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 952, in _load_cog
+    mod_obj = importlib.import_module(cogname)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/red/cogs/enigmata.py", line 94
+    if os.listdir("data/enigmata/{}".format(server.id) == []:
+                                                            ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/red/cogs/owner.py", line 150, in _reload
+    self._load_cog(module)
+  File "/home/red/cogs/owner.py", line 956, in _load_cog
+    raise CogLoadError(*e.args)
+cogs.owner.CogLoadError: ('invalid syntax', ('/home/red/cogs/enigmata.py', 94, 69, '            if os.listdir("data/enigmata/{}".format(server.id) == []:\n'))

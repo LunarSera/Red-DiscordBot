@@ -1,0 +1,12 @@
+{
+    "453668709396119562" : {
+        "BOTS_MSG" : "Oh look.... another bot has entered our cozy home. Please welcome {0.name} to {1.name}!",
+        "BOTS_ROLE" : "Bot Perms",
+        "CHANNEL" : "453668709396119564",
+        "GREETING" : [
+            "Hello {0.name} and welcome to {1.name}. This is a cozy place dedicated to the continued development of Stellar War, ported from the online flash version right to your pocket.\nIf you have any questions, please, don't hesitate to ask. \nFeel free to read the guidelines of our server, located in <#457192606091182083>."
+        ],
+        "ON" : true,
+        "WHISPER" : false
+    }
+}
