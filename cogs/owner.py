@@ -255,6 +255,7 @@ class Owner:
             await self.bot.say(box(page, lang="py"))
 
     @commands.group(name="set", pass_context=True)
+    @checks.is_owner()
     async def _set(self, ctx):
         """Changes Red's core settings"""
         if ctx.invoked_subcommand is None:
@@ -262,6 +263,7 @@ class Owner:
             return
 
     @_set.command(pass_context=True)
+    @checks.is_owner()
     async def owner(self, ctx):
         """Sets owner"""
         if self.bot.settings.no_prompt is True:
@@ -790,6 +792,7 @@ class Owner:
             await self.bot.say("Alright then.")
 
     @commands.command(pass_context=True)
+    @checks.is_owner()
     @commands.cooldown(1, 60, commands.BucketType.user)
     async def contact(self, ctx, *, message : str):
         """Sends a message to the owner"""
@@ -835,6 +838,7 @@ class Owner:
             await self.bot.say("Your message has been sent.")
 
     @commands.command()
+    @checks.is_owner()
     async def info(self):
         """Shows info about Red"""
         author_repo = "https://github.com/Twentysix26"
@@ -883,6 +887,7 @@ class Owner:
                                "to send this")
 
     @commands.command()
+    @checks.is_owner()
     async def uptime(self):
         """Shows Red's uptime"""
         since = self.bot.uptime.strftime("%Y-%m-%d %H:%M:%S")
@@ -891,6 +896,7 @@ class Owner:
                            "".format(passed, since))
 
     @commands.command()
+    @checks.is_owner()
     async def version(self):
         """Shows Red's current version"""
         response = self.bot.loop.run_in_executor(None, self._get_version)

@@ -634,7 +634,7 @@ class Mod:
             except KeyError:
                 pass
             if user.id in self._perms_cache and not self._perms_cache[user.id]:
-                del self._perms_cache[user.id]  # cleanup
+                del self._perms_cache[user.id]  # prune
             dataIO.save_json("data/mod/perms_cache.json", self._perms_cache)
             await self.bot.say("User has been unmuted in this channel.")
 
@@ -681,23 +681,22 @@ class Mod:
                     del self._perms_cache[user.id][channel.id]
                     await asyncio.sleep(0.1)
         if user.id in self._perms_cache and not self._perms_cache[user.id]:
-            del self._perms_cache[user.id]  # cleanup
+            del self._perms_cache[user.id]  # prune
         dataIO.save_json("data/mod/perms_cache.json", self._perms_cache)
         await self.bot.say("User has been unmuted in this server.")
 
     @commands.group(pass_context=True)
-    @checks.mod_or_permissions(manage_messages=True)
-    async def cleanup(self, ctx):
+    async def prune(self, ctx):
         """Deletes messages."""
         if ctx.invoked_subcommand is None:
             await send_cmd_help(ctx)
 
-    @cleanup.command(pass_context=True, no_pm=True)
+    @prune.command(pass_context=True, no_pm=True)
     async def text(self, ctx, text: str, number: int):
         """Deletes last X messages matching the specified text.
 
         Example:
-        cleanup text \"test\" 5
+        prune text \"test\" 5
 
         Remember to use double quotes."""
 
@@ -741,13 +740,13 @@ class Mod:
         else:
             await self.slow_deletion(to_delete)
 
-    @cleanup.command(pass_context=True, no_pm=True)
+    @prune.command(pass_context=True, no_pm=True)
     async def user(self, ctx, user: discord.Member, number: int):
         """Deletes last X messages from specified user.
 
         Examples:
-        cleanup user @\u200bTwentysix 2
-        cleanup user Red 6"""
+        prune user @\u200bTwentysix 2
+        prune user Red 6"""
 
         channel = ctx.message.channel
         author = ctx.message.author
@@ -792,7 +791,7 @@ class Mod:
         else:
             await self.slow_deletion(to_delete)
 
-    @cleanup.command(pass_context=True, no_pm=True)
+    @prune.command(pass_context=True, no_pm=True)
     async def after(self, ctx, message_id : int):
         """Deletes all messages after specified message
 
@@ -835,12 +834,12 @@ class Mod:
 
         await self.mass_purge(to_delete)
 
-    @cleanup.command(pass_context=True, no_pm=True)
+    @prune.command(pass_context=True, no_pm=True)
     async def messages(self, ctx, number: int):
         """Deletes last X messages.
 
         Example:
-        cleanup messages 26"""
+        prune messages 26"""
 
         channel = ctx.message.channel
         author = ctx.message.author
@@ -866,8 +865,8 @@ class Mod:
         else:
             await self.slow_deletion(to_delete)
 
-    @cleanup.command(pass_context=True, no_pm=True, name='bot')
-    async def cleanup_bot(self, ctx, number: int):
+    @prune.command(pass_context=True, no_pm=True, name='bot')
+    async def prune_bot(self, ctx, number: int):
         """Cleans up command messages and messages from the bot"""
 
         channel = ctx.message.channel
@@ -926,8 +925,8 @@ class Mod:
         else:
             await self.slow_deletion(to_delete)
 
-    @cleanup.command(pass_context=True, name='self')
-    async def cleanup_self(self, ctx, number: int, match_pattern: str = None):
+    @prune.command(pass_context=True, name='self')
+    async def prune_self(self, ctx, number: int, match_pattern: str = None):
         """Cleans up messages owned by the bot.
 
         By default, all messages are cleaned. If a third argument is specified,
@@ -1255,6 +1254,7 @@ class Mod:
             await self.bot.say("Something went wrong.")
 
     @commands.command()
+    @checks.admin_or_permissions(manage_nicknames=True)
     async def names(self, user : discord.Member):
         """Show previous names/nicknames of a user"""
         server = user.server
