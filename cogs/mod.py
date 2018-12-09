@@ -10,7 +10,7 @@ import os
 import re
 import logging
 import asyncio
-
+log = logging.getLogger("red.admin")
 
 ACTIONS_REPR = {
     "BAN"     : ("Ban", "\N{HAMMER}"),
@@ -106,6 +106,83 @@ class Mod:
         self.temp_cache = TempCache(bot)
         perms_cache = dataIO.load_json("data/mod/perms_cache.json")
         self._perms_cache = defaultdict(dict, perms_cache)
+        self.roles_file = 'data/enigmata/role.json'
+        self.roles = dataIO.load_json(self.roles_file)
+
+    async def server_has_role(self, server, role):
+        if role.lower() in [role.name.lower() for role in server.roles]:
+            return True
+        return False
+
+    async def bot_has_role(self, server, role):
+        if server.id in self.roles:
+            if role.lower() in self.roles[server.id]:
+                return True
+        return False
+
+    async def server_get_role(self, server, role):
+        if await self.server_has_role(server, role):
+            return [r for r in server.roles if r.name.lower() == role.lower()][0]
+        return False
+
+    async def save_role_data(self):
+        dataIO.save_json(self.roles_file, self.roles)
+
+    async def server_add_role(self, server, role, color):
+        if re.search(r'^(?:[0-9a-fA-F]{3}){1,2}$', color):
+            color = discord.Color(int(color, 16))
+            try:
+                if not await self.server_has_role(server, role):
+                    await self.bot.create_role(server, name=role, color=color, permissions=discord.Permissions(permissions=0), hoist=False)
+                    if server.id not in self.roles:
+                        self.roles[server.id] = {}
+                    self.roles[server.id][role.lower()] = {}
+                    await self.save_role_data()
+                    return 0
+                else:
+                    return 3
+            except discord.Forbidden:
+                return 2
+        else:
+            return 1
+
+    async def server_remove_role(self, server, role):
+        if await self.bot_has_role(server, role) and await self.server_has_role(server, role):
+            try:
+                role = await self.server_get_role(server, role)
+                await self.bot.delete_role(server, role)
+                if server.id not in self.roles:
+                    self.roles[server.id] = {}
+                if role.name in self.roles[server.id]:
+                    del self.roles[server.id][role.name.lower()]
+                await self.save_role_data()
+                return 0
+            except discord.Forbidden:
+                return 2
+        else:
+            return 1
+
+    async def member_apply_role(self, server, member, role):
+        if await self.bot_has_role(server, role) and await self.server_has_role(server, role):
+            try:
+                role = await self.server_get_role(server, role)
+                await self.bot.add_roles(member, role)
+                return 0
+            except discord.Forbidden:
+                return 2
+        else:
+            return 1
+
+    async def member_remove_role(self, server, member, role):
+        if await self.bot_has_role(server, role) and await self.server_has_role(server, role):
+            try:
+                role = await self.server_get_role(server, role)
+                await self.bot.remove_roles(member, role)
+                return 0
+            except discord.Forbidden:
+                return 2
+        else:
+            return 1
 
     @commands.group(pass_context=True, no_pm=True)
     @checks.serverowner_or_permissions(administrator=True)
@@ -494,210 +571,19 @@ class Mod:
             await self.bot.say("I cannot do that, I lack the "
                                "\"Manage Nicknames\" permission.")
 
-    @commands.group(pass_context=True, no_pm=True, invoke_without_command=True)
-    @checks.mod_or_permissions(administrator=True)
-    async def mute(self, ctx, user : discord.Member, *, reason: str = None):
-        """Mutes user in the channel/server
-
-        Defaults to channel"""
-        if ctx.invoked_subcommand is None:
-            await ctx.invoke(self.channel_mute, user=user, reason=reason)
-
-    @checks.mod_or_permissions(administrator=True)
-    @mute.command(name="channel", pass_context=True, no_pm=True)
-    async def channel_mute(self, ctx, user : discord.Member, *, reason: str = None):
-        """Mutes user in the current channel"""
-        author = ctx.message.author
-        channel = ctx.message.channel
-        server = ctx.message.server
-        overwrites = channel.overwrites_for(user)
-
-        if overwrites.send_messages is False:
-            await self.bot.say("That user can't send messages in this "
-                               "channel.")
-            return
-        elif not self.is_allowed_by_hierarchy(server, author, user):
-            await self.bot.say("I cannot let you do that. You are "
-                               "not higher than the user in the role "
-                               "hierarchy.")
-            return
-
-        self._perms_cache[user.id][channel.id] = overwrites.send_messages
-        overwrites.send_messages = False
-        try:
-            await self.bot.edit_channel_permissions(channel, user, overwrites)
-        except discord.Forbidden:
-            await self.bot.say("Failed to mute user. I need the manage roles "
-                               "permission and the user I'm muting must be "
-                               "lower than myself in the role hierarchy.")
-        else:
-            dataIO.save_json("data/mod/perms_cache.json", self._perms_cache)
-            await self.new_case(server,
-                                action="CMUTE",
-                                channel=channel,
-                                mod=author,
-                                user=user,
-                                reason=reason)
-            await self.bot.say("User has been muted in this channel.")
-
-    @checks.mod_or_permissions(administrator=True)
-    @mute.command(name="server", pass_context=True, no_pm=True)
-    async def server_mute(self, ctx, user : discord.Member, *, reason: str = None):
-        """Mutes user in the server"""
-        author = ctx.message.author
-        server = ctx.message.server
-
-        if not self.is_allowed_by_hierarchy(server, author, user):
-            await self.bot.say("I cannot let you do that. You are "
-                               "not higher than the user in the role "
-                               "hierarchy.")
-            return
-
-        register = {}
-        for channel in server.channels:
-            if channel.type != discord.ChannelType.text:
-                continue
-            overwrites = channel.overwrites_for(user)
-            if overwrites.send_messages is False:
-                continue
-            register[channel.id] = overwrites.send_messages
-            overwrites.send_messages = False
-            try:
-                await self.bot.edit_channel_permissions(channel, user,
-                                                        overwrites)
-            except discord.Forbidden:
-                await self.bot.say("Failed to mute user. I need the manage roles "
-                                   "permission and the user I'm muting must be "
-                                   "lower than myself in the role hierarchy.")
-                return
-            else:
-                await asyncio.sleep(0.1)
-        if not register:
-            await self.bot.say("That user is already muted in all channels.")
-            return
-        self._perms_cache[user.id] = register
-        dataIO.save_json("data/mod/perms_cache.json", self._perms_cache)
-        await self.new_case(server,
-                            action="SMUTE",
-                            mod=author,
-                            user=user,
-                            reason=reason)
-        await self.bot.say("User has been muted in this server.")
-
-    @commands.group(pass_context=True, no_pm=True, invoke_without_command=True)
-    @checks.mod_or_permissions(administrator=True)
-    async def unmute(self, ctx, user : discord.Member):
-        """Unmutes user in the channel/server
-
-        Defaults to channel"""
-        if ctx.invoked_subcommand is None:
-            await ctx.invoke(self.channel_unmute, user=user)
-
-    @checks.mod_or_permissions(administrator=True)
-    @unmute.command(name="channel", pass_context=True, no_pm=True)
-    async def channel_unmute(self, ctx, user : discord.Member):
-        """Unmutes user in the current channel"""
-        channel = ctx.message.channel
-        author = ctx.message.author
-        server = ctx.message.server
-        overwrites = channel.overwrites_for(user)
-
-        if overwrites.send_messages:
-            await self.bot.say("That user doesn't seem to be muted "
-                               "in this channel.")
-            return
-        elif not self.is_allowed_by_hierarchy(server, author, user):
-            await self.bot.say("I cannot let you do that. You are "
-                               "not higher than the user in the role "
-                               "hierarchy.")
-            return
-
-        if user.id in self._perms_cache:
-            old_value = self._perms_cache[user.id].get(channel.id)
-        else:
-            old_value = None
-        overwrites.send_messages = old_value
-        is_empty = self.are_overwrites_empty(overwrites)
-        try:
-            if not is_empty:
-                await self.bot.edit_channel_permissions(channel, user,
-                                                        overwrites)
-            else:
-                await self.bot.delete_channel_permissions(channel, user)
-        except discord.Forbidden:
-            await self.bot.say("Failed to unmute user. I need the manage roles"
-                               " permission and the user I'm unmuting must be "
-                               "lower than myself in the role hierarchy.")
-        else:
-            try:
-                del self._perms_cache[user.id][channel.id]
-            except KeyError:
-                pass
-            if user.id in self._perms_cache and not self._perms_cache[user.id]:
-                del self._perms_cache[user.id]  # cleanup
-            dataIO.save_json("data/mod/perms_cache.json", self._perms_cache)
-            await self.bot.say("User has been unmuted in this channel.")
-
-    @checks.mod_or_permissions(administrator=True)
-    @unmute.command(name="server", pass_context=True, no_pm=True)
-    async def server_unmute(self, ctx, user : discord.Member):
-        """Unmutes user in the server"""
-        server = ctx.message.server
-        author = ctx.message.author
-
-        if user.id not in self._perms_cache:
-            await self.bot.say("That user doesn't seem to have been muted with {0}mute commands. "
-                               "Unmute them in the channels you want with `{0}unmute <user>`"
-                               "".format(ctx.prefix))
-            return
-        elif not self.is_allowed_by_hierarchy(server, author, user):
-            await self.bot.say("I cannot let you do that. You are "
-                               "not higher than the user in the role "
-                               "hierarchy.")
-            return
-
-        for channel in server.channels:
-            if channel.type != discord.ChannelType.text:
-                continue
-            if channel.id not in self._perms_cache[user.id]:
-                continue
-            value = self._perms_cache[user.id].get(channel.id)
-            overwrites = channel.overwrites_for(user)
-            if overwrites.send_messages is False:
-                overwrites.send_messages = value
-                is_empty = self.are_overwrites_empty(overwrites)
-                try:
-                    if not is_empty:
-                        await self.bot.edit_channel_permissions(channel, user,
-                                                                overwrites)
-                    else:
-                        await self.bot.delete_channel_permissions(channel, user)
-                except discord.Forbidden:
-                    await self.bot.say("Failed to unmute user. I need the manage roles"
-                                       " permission and the user I'm unmuting must be "
-                                       "lower than myself in the role hierarchy.")
-                    return
-                else:
-                    del self._perms_cache[user.id][channel.id]
-                    await asyncio.sleep(0.1)
-        if user.id in self._perms_cache and not self._perms_cache[user.id]:
-            del self._perms_cache[user.id]  # cleanup
-        dataIO.save_json("data/mod/perms_cache.json", self._perms_cache)
-        await self.bot.say("User has been unmuted in this server.")
-
     @commands.group(pass_context=True)
     @checks.mod_or_permissions(manage_messages=True)
-    async def cleanup(self, ctx):
+    async def prune(self, ctx):
         """Deletes messages."""
         if ctx.invoked_subcommand is None:
             await send_cmd_help(ctx)
 
-    @cleanup.command(pass_context=True, no_pm=True)
+    @prune.command(pass_context=True, no_pm=True)
     async def text(self, ctx, text: str, number: int):
         """Deletes last X messages matching the specified text.
 
         Example:
-        cleanup text \"test\" 5
+        prune text \"test\" 5
 
         Remember to use double quotes."""
 
@@ -741,13 +627,13 @@ class Mod:
         else:
             await self.slow_deletion(to_delete)
 
-    @cleanup.command(pass_context=True, no_pm=True)
+    @prune.command(pass_context=True, no_pm=True)
     async def user(self, ctx, user: discord.Member, number: int):
         """Deletes last X messages from specified user.
 
         Examples:
-        cleanup user @\u200bTwentysix 2
-        cleanup user Red 6"""
+        prune user @\u200bTwentysix 2
+        prune user Red 6"""
 
         channel = ctx.message.channel
         author = ctx.message.author
@@ -792,7 +678,7 @@ class Mod:
         else:
             await self.slow_deletion(to_delete)
 
-    @cleanup.command(pass_context=True, no_pm=True)
+    @prune.command(pass_context=True, no_pm=True)
     async def after(self, ctx, message_id : int):
         """Deletes all messages after specified message
 
@@ -835,12 +721,12 @@ class Mod:
 
         await self.mass_purge(to_delete)
 
-    @cleanup.command(pass_context=True, no_pm=True)
+    @prune.command(pass_context=True, no_pm=True)
     async def messages(self, ctx, number: int):
         """Deletes last X messages.
 
         Example:
-        cleanup messages 26"""
+        prune messages 26"""
 
         channel = ctx.message.channel
         author = ctx.message.author
@@ -866,8 +752,8 @@ class Mod:
         else:
             await self.slow_deletion(to_delete)
 
-    @cleanup.command(pass_context=True, no_pm=True, name='bot')
-    async def cleanup_bot(self, ctx, number: int):
+    @prune.command(pass_context=True, no_pm=True, name='bot')
+    async def prune_bot(self, ctx, number: int):
         """Cleans up command messages and messages from the bot"""
 
         channel = ctx.message.channel
@@ -926,8 +812,8 @@ class Mod:
         else:
             await self.slow_deletion(to_delete)
 
-    @cleanup.command(pass_context=True, name='self')
-    async def cleanup_self(self, ctx, number: int, match_pattern: str = None):
+    @prune.command(pass_context=True, name='self')
+    async def prune_self(self, ctx, number: int, match_pattern: str = None):
         """Cleans up messages owned by the bot.
 
         By default, all messages are cleaned. If a third argument is specified,
@@ -1044,16 +930,38 @@ class Mod:
 
     @commands.group(pass_context=True, no_pm=True)
     @checks.admin_or_permissions(manage_channels=True)
-    async def ignore(self, ctx):
-        """Adds servers/channels to ignorelist"""
+    async def channel(self, ctx):
+        """Adds channels to ignorelist"""
         if ctx.invoked_subcommand is None:
             await send_cmd_help(ctx)
-            await self.bot.say(self.count_ignored())
 
-    @ignore.command(name="channel", pass_context=True)
+    @channel.command(name="list", pass_context=True)
+    async def ignore_lists(self, ctx, channel: discord.Channel=None):
+        """Lists ignored channels."""
+        channel = ctx.message.channel
+        server = ctx.message.server
+        # first get the relevant nested dict and reference it
+        # use dict.get instead to avoid raising a KeyError if the server isn't present
+        server_data = self.ignore_list.get(server.id)
+        # prepare the channel list. if there's no server data we'll need the empty list later anyway
+        channel_data = []
+        if server_data:
+            # for ids in the list within the CHANNELS dict key
+            for channel_id in server_data["CHANNELS"]:
+                # get the channel object itself
+                channel = server.get_channel(channel_id)
+                # only add to list if we retrived a valid channel object
+                if channel:
+                    channel_data["CHANNELS"].append(channel.id)
+
+        # give default response if no ignored channels
+        channel_data = "\n".join(channel_data) or "None"
+        # collate the channels and construct response
+        await self.bot.say("Ignored in {}\n**\n{}\n**".format(server.name, data)
+
+    @channel.command(name="ignore", pass_context=True)
     async def ignore_channel(self, ctx, channel: discord.Channel=None):
         """Ignores channel
-
         Defaults to current one"""
         current_ch = ctx.message.channel
         if not channel:
@@ -1071,29 +979,9 @@ class Mod:
             else:
                 await self.bot.say("Channel already in ignore list.")
 
-    @ignore.command(name="server", pass_context=True)
-    async def ignore_server(self, ctx):
-        """Ignores current server"""
-        server = ctx.message.server
-        if server.id not in self.ignore_list["SERVERS"]:
-            self.ignore_list["SERVERS"].append(server.id)
-            dataIO.save_json("data/mod/ignorelist.json", self.ignore_list)
-            await self.bot.say("This server has been added to the ignore list.")
-        else:
-            await self.bot.say("This server is already being ignored.")
-
-    @commands.group(pass_context=True, no_pm=True)
-    @checks.admin_or_permissions(manage_channels=True)
-    async def unignore(self, ctx):
-        """Removes servers/channels from ignorelist"""
-        if ctx.invoked_subcommand is None:
-            await send_cmd_help(ctx)
-            await self.bot.say(self.count_ignored())
-
-    @unignore.command(name="channel", pass_context=True)
+    @channel.command(name="unignore", pass_context=True)
     async def unignore_channel(self, ctx, channel: discord.Channel=None):
         """Removes channel from ignore list
-
         Defaults to current one"""
         current_ch = ctx.message.channel
         if not channel:
@@ -1110,17 +998,6 @@ class Mod:
                 await self.bot.say("Channel removed from ignore list.")
             else:
                 await self.bot.say("That channel is not in the ignore list.")
-
-    @unignore.command(name="server", pass_context=True)
-    async def unignore_server(self, ctx):
-        """Removes current server from ignore list"""
-        server = ctx.message.server
-        if server.id in self.ignore_list["SERVERS"]:
-            self.ignore_list["SERVERS"].remove(server.id)
-            dataIO.save_json("data/mod/ignorelist.json", self.ignore_list)
-            await self.bot.say("This server has been removed from the ignore list.")
-        else:
-            await self.bot.say("This server is not in the ignore list.")
 
     def count_ignored(self):
         msg = "```Currently ignoring:\n"
@@ -1201,14 +1078,89 @@ class Mod:
         else:
             await self.bot.say("Those words weren't in the filter.")
 
-    @commands.group(no_pm=True, pass_context=True)
-    @checks.admin_or_permissions(manage_roles=True)
-    async def editrole(self, ctx):
-        """Edits roles settings"""
-        if ctx.invoked_subcommand is None:
-            await send_cmd_help(ctx)
+    @commands.group(pass_context=True, no_pm=True, name='role', aliases=['customrole', 'cr'])
+    async def role(self, context):
+        """Mods can add roles, users can apply or relieve roles. Roles created with this cog have no permissions, it only functions for fun."""
+        if context.invoked_subcommand is None:
+            await send_cmd_help(context)
 
-    @editrole.command(aliases=["color"], pass_context=True)
+    @role.command(pass_context=True, no_pm=True, name='add', aliases=['new'])
+    @checks.mod_or_permissions(manage_roles=True)
+    async def _add(self, context, color, *, name):
+        """Add a role to the server.
+        Example: role add ff0000 Red"""
+        server = context.message.server
+        check = await self.server_add_role(server, name, color)
+        if check == 0:
+            message = 'Role created'
+        elif check == 1:
+            message = '`{}` is not a valid heximal color'.format(color)
+        elif check == 2:
+            message = 'I do not have the permissions to change that for you. Please give me the permissions to manage roles.'
+        elif check == 3:
+            message = '`{}` already exists'.format(name)
+        else:
+            message = 'It is impossible to get this message. What did you do?'
+        await self.bot.say(message)
+
+    @role.command(pass_context=True, no_pm=True, name='delete')
+    @checks.mod_or_permissions(manage_roles=True)
+    async def _remove(self, context, *, name):
+        """Remove role from the server."""
+        server = context.message.server
+        check = await self.server_remove_role(server, name)
+        if check == 0:
+            message = 'Role removed'
+        elif check == 1:
+            message = 'Role does not exist to me or the server'
+        elif check == 2:
+            message = 'I do not have the permissions to change that for you. Please give me the permissions to manage roles.'
+        await self.bot.say(message)
+
+    @role.command(pass_context=True, no_pm=True, name='apply')
+    @checks.mod_or_permissions(manage_roles=True)
+    async def _apply(self, context, *, role):
+        """Apply a role to a user."""
+        server = context.message.server
+        author = context.message.author
+        check = await self.member_apply_role(server, author, role)
+        if check == 0:
+            message = 'Role applied!'
+        elif check == 1:
+            message = 'Role does not exist to me or the server'
+        elif check == 2:
+            message = 'I do not have the permissions to change that for you. Please give me the permissions to manage roles.'
+        await self.bot.say(message)
+
+    @role.command(pass_context=True, no_pm=True, name='remove')
+    @checks.mod_or_permissions(manage_roles=True)
+    async def _relieve(self, context, *, role):
+        """Remove a role from a user."""
+        server = context.message.server
+        author = context.message.author
+        check = await self.member_remove_role(server, author, role)
+        if check == 0:
+            message = 'Role relieved!'
+        elif check == 1:
+            message = 'Role does not exist to me or the server'
+        elif check == 2:
+            message = 'I do not have the permissions to change that for you. Please give me the permissions to manage roles.'
+        await self.bot.say(message)
+
+    @role.command(pass_context=True, no_pm=True, name='list')
+    @checks.mod_or_permissions(manage_roles=True)
+    async def _list(self, context):
+        """List all available roles"""
+        server = context.message.server
+        message = '```All available roles on {}\n\n'.format(server.name)
+        if server.id in self.roles:
+            for role in self.roles[server.id]:
+                message += '{}\n'.format(role)
+        message += '```'
+        await self.bot.say(message)
+
+    @role.command(aliases=["color"], pass_context=True)
+    @checks.mod_or_permissions(manage_roles=True)
     async def colour(self, ctx, role: discord.Role, value: discord.Colour):
         """Edits a role's colour
 
@@ -1230,7 +1182,7 @@ class Mod:
             print(e)
             await self.bot.say("Something went wrong.")
 
-    @editrole.command(name="name", pass_context=True)
+    @role.command(name="name", pass_context=True)
     @checks.admin_or_permissions(administrator=True)
     async def edit_role_name(self, ctx, role: discord.Role, name: str):
         """Edits a role's name
@@ -1255,6 +1207,7 @@ class Mod:
             await self.bot.say("Something went wrong.")
 
     @commands.command()
+    @checks.admin_or_permissions(manage_nicknames=True)
     async def names(self, user : discord.Member):
         """Show previous names/nicknames of a user"""
         server = user.server
@@ -1695,6 +1648,11 @@ def check_folders():
             print("Creating " + folder + " folder...")
             os.makedirs(folder)
 
+def check_file():
+    data_file = 'data/enigmata/role.json'
+    if not dataIO.is_valid_json(data_file):
+        print('Creating default role.json...')
+        dataIO.save_json(data_file, {})
 
 def check_files():
     ignore_list = {"SERVERS": [], "CHANNELS": []}
