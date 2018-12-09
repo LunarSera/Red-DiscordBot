@@ -934,12 +934,34 @@ class Mod:
         """Adds channels to ignorelist"""
         if ctx.invoked_subcommand is None:
             await send_cmd_help(ctx)
-            await self.bot.say(self.count_ignored())
+
+    @channel.command(name="list", pass_context=True)
+    async def ignore_lists(self, ctx, channel: discord.Channel=None):
+        """Lists ignored channels."""
+        channel = ctx.message.channel
+        server = ctx.message.server
+        # first get the relevant nested dict and reference it
+        # use dict.get instead to avoid raising a KeyError if the server isn't present
+        server_data = self.ignore_list.get(server.id)
+        # prepare the channel list. if there's no server data we'll need the empty list later anyway
+        channel_data = []
+        if server_data:
+            # for ids in the list within the CHANNELS dict key
+            for channel_id in server_data["CHANNELS"]:
+                # get the channel object itself
+                channel = server.get_channel(channel_id)
+                # only add to list if we retrived a valid channel object
+                if channel:
+                    channel_data["CHANNELS"].append(channel.id)
+
+        # give default response if no ignored channels
+        channel_data = "\n".join(channel_data) or "None"
+        # collate the channels and construct response
+        await self.bot.say("Ignored in {}\n**\n{}\n**".format(server.name, data)
 
     @channel.command(name="ignore", pass_context=True)
     async def ignore_channel(self, ctx, channel: discord.Channel=None):
         """Ignores channel
-
         Defaults to current one"""
         current_ch = ctx.message.channel
         if not channel:
@@ -978,8 +1000,9 @@ class Mod:
                 await self.bot.say("That channel is not in the ignore list.")
 
     def count_ignored(self):
-        msg = "**Currently ignoring:\n"
-        msg += str(len(self.ignore_list["CHANNELS"])) + " channels\n**"
+        msg = "```Currently ignoring:\n"
+        msg += str(len(self.ignore_list["CHANNELS"])) + " channels\n"
+        msg += str(len(self.ignore_list["SERVERS"])) + " servers\n```\n"
         return msg
 
     @commands.group(name="filter", pass_context=True, no_pm=True)
