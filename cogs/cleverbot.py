@@ -4,9 +4,10 @@ from .utils.dataIO import dataIO
 import os
 import aiohttp
 import json
-
+import cleverbot
 API_URL = "https://www.cleverbot.com/getreply"
-
+clevb = cleverbot.Cleverbot('CC8qctXsAST8RdxGN2qDksG7aiQ', cs='76nxdxIJ02AAA', timeout=60, tweak1=10, tweak2=7, tweak3=92)
+cleverbot_key = clevb
 
 class CleverbotError(Exception):
     pass
@@ -79,7 +80,7 @@ class Cleverbot():
         You can get it from https://www.cleverbot.com/api/
         Use this command in direct message to keep your
         token secret"""
-        self.settings["cleverbot_key"] = key
+        self.settings["clevb"] = key
         self.settings.pop("key", None)
         self.settings.pop("user", None)
         dataIO.save_json("data/cleverbot/settings.json", self.settings)

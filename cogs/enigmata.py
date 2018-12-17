@@ -9,7 +9,6 @@ from .utils.chat_formatting import escape_mass_mentions, italics, pagify
 from .utils.chat_formatting import *
 from .utils import checks
 from urllib.parse import quote_plus
-DB_VERSION = 2
 
 class Enigmata:
     """These commands give you insight into the lore of Enigmata: Stellar War."""
