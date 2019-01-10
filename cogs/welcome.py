@@ -1,349 +1,309 @@
-import discord
-from discord.ext import commands
-from .utils.dataIO import dataIO
-from .utils import checks
-from .utils.chat_formatting import pagify
-from __main__ import send_cmd_help
-from copy import deepcopy
 import os
+import discord
 import asyncio
-from random import choice as rand_choice
+from cogs.utils import checks
+from discord.ext import commands
+from random import choice, randint
+from cogs.utils.dataIO import fileIO
 
+settings = {"Channel": None, "Embed" : False, "joinmessage": None, "leavemessage": None, "leave": False, "botroletoggle": False, "botrole" : None, "join": False, "Invites": {}}
 
-default_greeting = "Welcome {0.name} to {1.name}!"
-default_settings = {"GREETING": [default_greeting], "ON": False,
-                    "CHANNEL": None, "WHISPER": False,
-                    "BOTS_MSG": None, "BOTS_ROLE": None}
-settings_path = "data/welcome/settings.json"
-
-
-class Welcome:
-    """Welcomes new members to the server in the default channel"""
-
+class Welcomer:
     def __init__(self, bot):
         self.bot = bot
-        self.settings = dataIO.load_json(settings_path)
-
+        self.load = "data/welcomer/settings.json"
+        
+        
     @commands.group(pass_context=True, no_pm=True)
-    @checks.admin_or_permissions(manage_server=True)
-    async def welcomeset(self, ctx):
-        """Sets welcome module settings"""
-        server = ctx.message.server
-        if server.id not in self.settings:
-            self.settings[server.id] = deepcopy(default_settings)
-            dataIO.save_json(settings_path, self.settings)
+    @checks.mod_or_permissions(administrator=True)
+    async def welcomer(self, ctx):
+        """Welcomer modules settings."""
         if ctx.invoked_subcommand is None:
-            await send_cmd_help(ctx)
-            msg = "```"
-            msg += "Random GREETING: {}\n".format(rand_choice(self.settings[server.id]["GREETING"]))
-            msg += "ON: {}\n".format(self.settings[server.id]["ON"])
-            msg += "WHISPER: {}\n".format(self.settings[server.id]["WHISPER"])
-            msg += "BOTS_MSG: {}\n".format(self.settings[server.id]["BOTS_MSG"])
-            msg += "BOTS_ROLE: {}\n".format(self.settings[server.id]["BOTS_ROLE"])
-            msg += "```"
-            await self.bot.say(msg)
-
-    @welcomeset.group(pass_context=True, name="msg")
-    async def welcomeset_msg(self, ctx):
-        """Manage welcome messages
-        """
-        if ctx.invoked_subcommand is None or \
-                isinstance(ctx.invoked_subcommand, commands.Group):
-            await send_cmd_help(ctx)
+            await self.bot.send_cmd_help(ctx)
+            
+    @welcomer.command(pass_context=True)
+    async def examples(self, ctx):
+        """Shows some examples for settings."""
+        msg = """
+Set a message when a user joins
+    {0} is the user.
+    {1} is the invite.
+    {2} is the server.
+Example formats:
+    {0.mention} this will mention the user.
+    {0.name} this will only say the users name.
+    {2.name} is the name of the server
+    {1.inviter} is the user that made the invite
+    {1.url} is the invite link the user joined with
+Message Examples:
+    join:
+        {0.mention} Welcome to {2.name}, User joined with {1.url} referred by {1.inviter} Welcome to {2.name} {0.name}! I hope you enjoy your stay!
+    leave:
+        {0.name} has left {2.name}! Oh no we lost a user! Bye bye {0.name}. Hope you had a good stay!"""
+        await self.bot.say("**Here are some examples!**\n\n" + "```css\n" + msg + "```")
+        
+    @welcomer.command(pass_context=True)
+    async def status(self, ctx):
+        """Shows the servers settings for welcomer."""
+        db = fileIO(self.load, "load")
+        if ctx.message.server.id not in db:
+            await self.bot.say(":x: **Welcomer has not been configured for this server, use `welcomer channel` first**")
             return
-
-    @welcomeset_msg.command(pass_context=True, name="add", no_pm=True)
-    async def welcomeset_msg_add(self, ctx, *, format_msg):
-        """Adds a welcome message format for the server to be chosen at random
-
-        {0} is user
-        {1} is server
-        Default is set to:
-            Welcome {0.name} to {1.name}!
-
-        Example formats:
-            {0.mention}.. What are you doing here?
-            {1.name} has a new member! {0.name}#{0.discriminator} - {0.id}
-            Someone new joined! Who is it?! D: IS HE HERE TO HURT US?!"""
         server = ctx.message.server
-        self.settings[server.id]["GREETING"].append(format_msg)
-        dataIO.save_json(settings_path, self.settings)
-        await self.bot.say("Welcome message added for the server.")
-        await self.send_testing_msg(ctx, msg=format_msg)
-
-    @welcomeset_msg.command(pass_context=True, name="del", no_pm=True)
-    async def welcomeset_msg_del(self, ctx):
-        """Removes a welcome message from the random message list
-        """
-        server = ctx.message.server
-        author = ctx.message.author
-        msg = 'Choose a welcome message to delete:\n\n'
-        for c, m in enumerate(self.settings[server.id]["GREETING"]):
-            msg += "  {}. {}\n".format(c, m)
-        for page in pagify(msg, ['\n', ' '], shorten_by=20):
-            await self.bot.say("```\n{}\n```".format(page))
-        answer = await self.bot.wait_for_message(timeout=120, author=author)
+        color = ''.join([choice('0123456789ABCDEF') for x in range(6)])
+        color = int(color, 16)
+        e = discord.Embed(colour=discord.Colour(value=color), description="\n\a")
+        role = discord.utils.get(ctx.message.server.roles, id=db[server.id]["botrole"])
+        e.set_author(name="Settings for " + server.name, icon_url=server.icon_url)
+        e.add_field(name="Welcomer Channel:", value="#" + self.bot.get_channel(db[server.id]["Channel"]).name if self.bot.get_channel(db[server.id]["Channel"]) else None, inline=True)
+        e.add_field(name="Join Toggle:", value=db[server.id]["join"], inline=True)
+        e.add_field(name="Leave Toggle:", value=db[server.id]["leave"], inline=True)
+        e.add_field(name="Bot Role:", value=role.name if role else None)
+        e.add_field(name="Bot Role Toggle:", value=db[server.id]["botroletoggle"])  
+        e.add_field(name="Embed", value=db[server.id]["Embed"], inline=True)
+        e.add_field(name="Leave Message:", value=db[server.id]["leavemessage"], inline=False)
+        e.add_field(name="Join Message:", value=db[server.id]["joinmessage"], inline=False)
         try:
-            num = int(answer.content)
-            choice = self.settings[server.id]["GREETING"].pop(num)
-        except:
-            await self.bot.say("That's not a number in the list :/")
-            return
-        if not self.settings[server.id]["GREETING"]:
-            self.settings[server.id]["GREETING"] = [default_greeting]
-        dataIO.save_json(settings_path, self.settings)
-        await self.bot.say("**This message was deleted:**\n{}".format(choice))
-
-    @welcomeset_msg.command(pass_context=True, name="list", no_pm=True)
-    async def welcomeset_msg_list(self, ctx):
-        """Lists the welcome messages of this server
-        """
-        server = ctx.message.server
-        msg = 'Welcome messages:\n\n'
-        for c, m in enumerate(self.settings[server.id]["GREETING"]):
-            msg += "  {}. {}\n".format(c, m)
-        for page in pagify(msg, ['\n', ' '], shorten_by=20):
-            await self.bot.say("```\n{}\n```".format(page))
-
-    @welcomeset.command(pass_context=True)
-    async def toggle(self, ctx):
-        """Turns on/off welcoming new users to the server"""
-        server = ctx.message.server
-        self.settings[server.id]["ON"] = not self.settings[server.id]["ON"]
-        if self.settings[server.id]["ON"]:
-            await self.bot.say("I will now welcome new users to the server.")
-            await self.send_testing_msg(ctx)
-        else:
-            await self.bot.say("I will no longer welcome new users.")
-        dataIO.save_json(settings_path, self.settings)
-
-    @welcomeset.command(pass_context=True)
-    async def channel(self, ctx, channel : discord.Channel=None):
-        """Sets the channel to send the welcome message
-
-        If channel isn't specified, the server's default channel will be used"""
-        server = ctx.message.server
+            await self.bot.say(embed=e)
+        except Exception as e:
+            await self.bot.say(e)
+        
+    @welcomer.command(pass_context=True)
+    async def channel(self, ctx, *, channel : discord.Channel=None):
+        """Sets the welcomer channel settings."""
         if channel is None:
-            channel = ctx.message.server.default_channel
-        if not server.get_member(self.bot.user.id
-                                 ).permissions_in(channel).send_messages:
-            await self.bot.say("I do not have permissions to send "
-                               "messages to {0.mention}".format(channel))
-            return
-        self.settings[server.id]["CHANNEL"] = channel.id
-        dataIO.save_json(settings_path, self.settings)
-        channel = self.get_welcome_channel(server)
-        await self.bot.send_message(channel, "I will now send welcome "
-                                    "messages to {0.mention}".format(channel))
-        await self.send_testing_msg(ctx)
-
-    @welcomeset.group(pass_context=True, name="bot", no_pm=True)
-    async def welcomeset_bot(self, ctx):
-        """Special welcome for bots"""
-        if ctx.invoked_subcommand is None or \
-                isinstance(ctx.invoked_subcommand, commands.Group):
-            await send_cmd_help(ctx)
-            return
-
-    @welcomeset_bot.command(pass_context=True, name="msg", no_pm=True)
-    async def welcomeset_bot_msg(self, ctx, *, format_msg=None):
-        """Set the welcome msg for bots.
-
-        Leave blank to reset to regular user welcome"""
+            channel = ctx.message.channel
         server = ctx.message.server
-        self.settings[server.id]["BOTS_MSG"] = format_msg
-        dataIO.save_json(settings_path, self.settings)
-        if format_msg is None:
-            await self.bot.say("Bot message reset. Bots will now be welcomed as regular users.")
-        else:
-            await self.bot.say("Bot welcome message set for the server.")
-            await self.send_testing_msg(ctx, bot=True)
-
-    # TODO: Check if have permissions
-    @welcomeset_bot.command(pass_context=True, name="role", no_pm=True)
-    async def welcomeset_bot_role(self, ctx, role: discord.Role=None):
-        """Set the role to put bots in when they join.
-
-        Leave blank to not give them a role."""
-        server = ctx.message.server
-        self.settings[server.id]["BOTS_ROLE"] = role.name if role else role
-        dataIO.save_json(settings_path, self.settings)
-        await self.bot.say("Bots that join this server will "
-                           "now be put into the {} role".format(role.name))
-
-    @welcomeset.command(pass_context=True)
-    async def whisper(self, ctx, choice: str=None):
-        """Sets whether or not a DM is sent to the new user
-
-        Options:
-            off - turns off DMs to users
-            only - only send a DM to the user, don't send a welcome to the channel
-            both - send a message to both the user and the channel
-
-        If Option isn't specified, toggles between 'off' and 'only'
-        DMs will not be sent to bots"""
-        options = {"off": False, "only": True, "both": "BOTH"}
-        server = ctx.message.server
-        if choice is None:
-            self.settings[server.id]["WHISPER"] = not self.settings[server.id]["WHISPER"]
-        elif choice.lower() not in options:
-            await send_cmd_help(ctx)
+        db = fileIO(self.load, "load")
+        if server.id in db:
+            db[server.id]['Channel'] = channel.id
+            fileIO(self.load, "save", db)
+            await self.bot.say("Channel changed.")
             return
+        if not ctx.message.server.me.permissions_in(channel).manage_channels:
+            await self.bot.say("I dont have the `manage_channels` permission.")
+            return
+        if ctx.message.server.me.permissions_in(channel).send_messages:
+            if not server.id in db:
+                db[server.id] = settings
+                db[server.id]['Channel'] = channel.id
+                invs = await self.bot.invites_from(server)
+                for i in invs:
+                    db[server.id]["Invites"][i.url] = i.uses
+                fileIO(self.load, "save", db)
+                await self.bot.say("Channel set.")
+                
+    @welcomer.command(pass_context=True)
+    async def joinmessage(self, ctx, *, message : str):
+        """Sets welcomer joinmessage setting."""
+        server = ctx.message.server
+        db = fileIO(self.load, "load")
+        if ctx.message.server.id not in db:
+            await self.bot.say(":x: **Please set the channel you want me to send welcoming and leaving messages to with `welcomer channel #channel_name` then you may proceed to setting this message..**")
+            return
+        if db[server.id]['joinmessage'] is not None:
+            db[server.id]['joinmessage'] = message
+            fileIO(self.load, "save", db)
+            await self.bot.say("join message has been changed.")
+        elif db[server.id]["joinmessage"] is None:
+            db[server.id]['joinmessage'] = message
+            fileIO(self.load, "save", db)
+            await self.bot.say("Join message has been set.")
+            
+            
+    @welcomer.command(pass_context=True)
+    async def leavemessage(self, ctx, *, message : str):
+        """Sets the welcomer leavemessage setting."""
+        server = ctx.message.server
+        db = fileIO(self.load, "load")
+        if ctx.message.server.id not in db:
+            await self.bot.say(":x: **Please set the channel you want me to send welcoming and leaving messages to with `welcomer channel #channel_name` then you may proceed to setting this message..**")
+            return
+        if db[server.id]['leavemessage'] is not None:
+            db[server.id]['leavemessage'] = message
+            fileIO(self.load, "save", db)
+            await self.bot.say("leave message has been changed.")
+        elif db[server.id]["leavemessage"] is None:
+            db[server.id]['leavemessage'] = message
+            fileIO(self.load, "save", db)
+            await self.bot.say("leave message has been set.")
+        
+    @welcomer.command(pass_context=True)
+    async def botrole(self, ctx, *, role : discord.Role):
+        """Sets the welcomer bot role setting."""
+        server = ctx.message.server
+        db = fileIO(self.load, "load")
+        if not server.id in db:
+            await self.bot.say(":x: **Please set the channel you want me to send welcoming and leaving messages to with\n`welcomer channel #channel_name`\nthen you may proceed to setting this message.**")
+            return
+        if ctx.message.server.me.permissions_in(ctx.message.channel).manage_roles:
+            db[server.id]['botrole'] = role.id
+            fileIO(self.load, "save", db)
+            await self.bot.say("The bot role has been set.")
         else:
-            self.settings[server.id]["WHISPER"] = options[choice.lower()]
-        dataIO.save_json(settings_path, self.settings)
-        channel = self.get_welcome_channel(server)
-        if not self.settings[server.id]["WHISPER"]:
-            await self.bot.say("I will no longer send DMs to new users")
-        elif self.settings[server.id]["WHISPER"] == "BOTH":
-            await self.bot.send_message(channel, "I will now send welcome "
-                                        "messages to {0.mention} as well as to "
-                                        "the new user in a DM".format(channel))
-        else:
-            await self.bot.send_message(channel, "I will now only send "
-                                        "welcome messages to the new user "
-                                        "as a DM".format(channel))
-        await self.send_testing_msg(ctx)
+            await self.bot.say("I do not have the `manage_roles` permission!")
+        
+    @welcomer.command(pass_context=True)
+    async def botroletoggle(self, ctx):
+        """Toggles the bot role setting for welcomer."""
+        server = ctx.message.server
+        db = fileIO(self.load, "load")
+        if not server.id in db:
+            await self.bot.say(":x: **Please set the channel you want me to send welcoming and leaving messages to with\n`welcomer channel #channel_name`\nthen you may proceed to setting this message.**")
+            return
+        if db[server.id]['botroletoggle'] is None:
+            await self.bot.say("botroletoggle not found set it with `{}welcomer botroletoggle`.".format(ctx.prefix))
+        if db[server.id]["botroletoggle"] is False:
+            db[server.id]["botroletoggle"] = True
+            fileIO(self.load, "save", db)
+            await self.bot.say("Bot role enabled.")
+        elif db[server.id]["botroletoggle"] is True:
+            db[server.id]["botroletoggle"] = False
+            fileIO(self.load, "save", db)
+            await self.bot.say("Bot role disabled.")
 
-    async def member_join(self, member):
+    @welcomer.command(pass_context=True)
+    async def embed(self, ctx):
+        """Toggles the bot role setting for welcomer."""
+        server = ctx.message.server
+        db = fileIO(self.load, "load")
+        if not server.id in db:
+            await self.bot.say("**Please set the channel you want me to send welcoming and leaving messages to with `welcomer channel #channel_name` then you may proceed to setting this message.**")
+            return
+        if db[server.id]["Embed"] is False:
+            db[server.id]["Embed"] = True
+            fileIO(self.load, "save", db)
+            await self.bot.say("Embeds enabled")
+        elif db[server.id]["Embed"] is True:
+            db[server.id]["Embed"] = False
+            fileIO(self.load, "save", db)
+            await self.bot.say("Embeds disabled")
+        
+    @welcomer.command(pass_context=True)
+    async def togglel(self, ctx):
+        """Toggles the leave message for welcomer."""
+        server = ctx.message.server
+        db = fileIO(self.load, "load")
+        if not server.id in db:
+            await self.bot.say("**Please set the channel you want me to send welcoming and leaving messages to with `welcomer channel #channel_name` then you may proceed to setting this message.**")
+            return
+        if db[server.id]["leave"] is False:
+            db[server.id]["leave"] = True
+            fileIO(self.load, "save", db)
+            await self.bot.say("leave messages enabled.")
+        elif db[server.id]["leave"] is True:
+            db[server.id]["leave"] = False
+            fileIO(self.load, "save", db)
+            await self.bot.say("leave messages disabled.")
+            
+    @welcomer.command(pass_context=True)
+    async def togglej(self, ctx):
+        """Toggles the join message for welcomer."""
+        server = ctx.message.server
+        db = fileIO(self.load, "load")
+        if db[server.id]["join"] is False:
+            db[server.id]["join"] = True
+            fileIO(self.load, "save", db)
+            await self.bot.say("join messages enabled.")
+        elif db[server.id]["join"] is True:
+            db[server.id]["join"] = False
+            fileIO(self.load, "save", db)
+            await self.bot.say("join messages disabled.")
+        
+    @welcomer.command(pass_context=True)
+    async def disable(self, ctx):
+        """Disables the welcomer."""
+        server = ctx.message.server
+        db = fileIO(self.load, "load")
+        if not server.id in db:
+            await self.bot.say("Welcomer was never enabled on this server. :face_palm::drool:")
+            return
+        del db[server.id]
+        fileIO(self.load, "save", db)
+        await self.bot.say("Successfully deleted all settings for welcomer for this server.")
+        
+    async def on_member_join(self, member):
         server = member.server
-        if server.id not in self.settings:
-            self.settings[server.id] = deepcopy(default_settings)
-            self.settings[server.id]["CHANNEL"] = server.default_channel.id
-            dataIO.save_json(settings_path, self.settings)
-        if not self.settings[server.id]["ON"]:
+        db = fileIO(self.load, "load")
+        if not server.id in db:
             return
-        if server is None:
-            print("Server is None. Private Message or some new fangled "
-                  "Discord thing?.. Anyways there be an error, "
-                  "the user was {}".format(member.name))
+        if member.bot:
+            if db[server.id]['botroletoggle'] is True:
+                roleobj = discord.utils.get(server.roles, id=db[server.id]['botrole'])
+                if roleobj is not None:
+                    await asyncio.sleep(3)
+                    await self.bot.add_roles(member, roleobj)
+        await asyncio.sleep(1)
+        if db[server.id]['join'] is False:
             return
-
-        only_whisper = self.settings[server.id]["WHISPER"] is True
-        bot_welcome = member.bot and self.settings[server.id]["BOTS_MSG"]
-        bot_role = member.bot and self.settings[server.id]["BOTS_ROLE"]
-        msg = bot_welcome or rand_choice(self.settings[server.id]["GREETING"])
-
-        # whisper the user if needed
-        if not member.bot and self.settings[server.id]["WHISPER"]:
+        channel = db[server.id]["Channel"]
+        inv_channel = None
+        message = db[server.id]['joinmessage']
+        json_list = db[server.id]["Invites"]
+        inv_list = await self.bot.invites_from(server)
+        color = ''.join([choice('0123456789ABCDEF') for x in range(6)])
+        color = int(color, 16)
+        for a in inv_list:
             try:
-                await self.bot.send_message(member, msg.format(member, server))
-            except:
-                print("welcome.py: unable to whisper {}. Probably "
-                      "doesn't want to be PM'd".format(member))
-        # grab the welcome channel
-        channel = self.get_welcome_channel(server)
-        if channel is None:  # complain even if only whisper
-            print('welcome.py: Channel not found. It was most '
-                  'likely deleted. User joined: {}'.format(member.name))
+                if int(a.uses) > int(json_list[a.url]):
+                    if db[server.id]["Embed"]:
+                        data = discord.Embed(title="Member Joined!",
+                                             description=message.format(member, a, server),
+                                             colour=discord.Colour(value=color))
+                        data.set_thumbnail(url=member.avatar_url)
+                        await self.bot.send_message(server.get_channel(channel), embed=data)
+                    else:
+                        await self.bot.send_message(server.get_channel(channel), message.format(member, a, server))
+                    break
+            except KeyError:
+                if db[server.id]["Embed"]:
+                    data = discord.Embed(title="ID: {}".format(member.id),
+                                             description=message.format(member, a, server),
+                                             colour=discord.Colour(value=color))
+                    data.set_thumbnail(url=member.avatar_url)
+                    await self.bot.send_message(server.get_channel(channel), embed=data)
+                else:
+                    await self.bot.send_message(server.get_channel(channel), message.format(member, a, server))
+                break
+        invlist = await self.bot.invites_from(server)
+        for i in invlist:
+            db[server.id]["Invites"][i.url] = i.uses
+        fileIO(self.load, "save", db)
+    
+    async def on_member_remove(self, member):
+        server = member.server
+        db = fileIO(self.load, "load")
+        if not server.id in db:
             return
-        # we can stop here
-        if only_whisper and not bot_welcome:
+        if db[server.id]['leave'] is False:
             return
-        if not self.speak_permissions(server):
-            print("Permissions Error. User that joined: "
-                  "{0.name}".format(member))
-            print("Bot doesn't have permissions to send messages to "
-                  "{0.name}'s #{1.name} channel".format(server, channel))
-            return
-        # try to add role if needed
-        failed_to_add_role = False
-        if bot_role:
-            try:
-                role = discord.utils.get(server.roles, name=bot_role)
-                await self.bot.add_roles(member, role)
-            except:
-                print('welcome.py: unable to add {} role to {}. '
-                      'Role was deleted, network error, or lacking '
-                      'permissions. Trying again in 5 seconds.'
-                      .format(bot_role, member))
-                failed_to_add_role = True
-            else:
-                print('welcome.py: added {} role to '
-                      'bot, {}'.format(role, member))
-        # finally, welcome them
-        await self.bot.send_message(channel, msg.format(member, server))
-        if failed_to_add_role:
-            await asyncio.sleep(5)
-            try:
-                await self.bot.add_roles(member, role)
-            except:
-                print('welcome.py: Still unable to add {} role to {}.'
-                      .format(bot_role, member))
-            else:
-                print('welcome.py: added {} role to '
-                      'bot, {}'.format(role, member))
-
-    def get_welcome_channel(self, server):
-        try:
-            return server.get_channel(self.settings[server.id]["CHANNEL"])
-        except:
-            return None
-
-    def speak_permissions(self, server):
-        channel = self.get_welcome_channel(server)
-        if channel is None:
-            return False
-        return server.get_member(self.bot.user.id
-                                 ).permissions_in(channel).send_messages
-
-    async def send_testing_msg(self, ctx, bot=False, msg=None):
-        server = ctx.message.server
-        channel = self.get_welcome_channel(server)
-        rand_msg = msg or rand_choice(self.settings[server.id]["GREETING"])
-        if channel is None:
-            await self.bot.send_message(ctx.message.channel,
-                                        "I can't find the specified channel. "
-                                        "It might have been deleted.")
-            return
-        await self.bot.send_message(ctx.message.channel,
-                                    "`Sending a testing message to "
-                                    "`{0.mention}".format(channel))
-        if self.speak_permissions(server):
-            msg = self.settings[server.id]["BOTS_MSG"] if bot else rand_msg
-            if not bot and self.settings[server.id]["WHISPER"]:
-                await self.bot.send_message(ctx.message.author,
-                        msg.format(ctx.message.author,server))
-            if bot or self.settings[server.id]["WHISPER"] is not True:
-                await self.bot.send_message(channel,
-                        msg.format(ctx.message.author, server))
+        message = db[server.id]['leavemessage']
+        channel = db[server.id]["Channel"]
+        if db[server.id]["Embed"]:
+            color = ''.join([choice('0123456789ABCDEF') for x in range(6)])
+            color = int(color, 16)
+            data = discord.Embed(title="Member Left!".format(member.id),
+                                 description=message.format(member, server),
+                                 colour=discord.Colour(value=color))
+            data.set_thumbnail(url=member.avatar_url)
+            await self.bot.send_message(server.get_channel(channel), embed=data)
         else:
-            await self.bot.send_message(ctx.message.channel,
-                                        "I do not have permissions "
-                                        "to send messages to "
-                                        "{0.mention}".format(channel))
+            await self.bot.send_message(server.get_channel(channel), message.format(member, server))
+        
+def check_folder():
+    if not os.path.exists('data/welcomer'):
+        print('Creating data/welcomer folder...')
+        os.makedirs('data/welcomer')
 
 
-def check_folders():
-    if not os.path.exists("data/welcome"):
-        print("Creating data/welcome folder...")
-        os.makedirs("data/welcome")
-
-
-def check_files():
-    f = settings_path
-    if not dataIO.is_valid_json(f):
-        print("Creating welcome settings.json...")
-        dataIO.save_json(f, {})
-    else:  # consistency check
-        current = dataIO.load_json(f)
-        for k, v in current.items():
-            if v.keys() != default_settings.keys():
-                for key in default_settings.keys():
-                    if key not in v.keys():
-                        current[k][key] = deepcopy(default_settings)[key]
-                        print("Adding " + str(key) +
-                              " field to welcome settings.json")
-        # upgrade. Before GREETING was 1 string
-        for server in current.values():
-            if isinstance(server["GREETING"], str):
-                server["GREETING"] = [server["GREETING"]]
-        dataIO.save_json(f, current)
-
-
+def check_file():
+    f = 'data/welcomer/settings.json'
+    if not fileIO(f, 'check'):
+        print('Creating default settings.json...')
+        fileIO(f, 'save', {})
+        
 def setup(bot):
-    check_folders()
-    check_files()
-    n = Welcome(bot)
-    bot.add_listener(n.member_join, "on_member_join")
+    check_folder()
+    check_file()
+    n = Welcomer(bot)
     bot.add_cog(n)

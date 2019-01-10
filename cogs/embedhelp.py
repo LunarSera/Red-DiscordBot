@@ -129,14 +129,11 @@ class Help:
                 for em in to_send:
                     await self.bot.send_message(ctx.message.author,
                                                 embed=em)
-                await self.bot.send_message(ctx.message.author,
-                                        "Neko is owned by Archaotic#4645. Based off Red - Discordbot (created"
-                                        "by Twentysix26 and improved by many.)\n" + usecase)
+                await self.bot.send_message(ctx.message.author, usecase)
             elif toggle == 'no_dm':
                 for em in to_send:
                     await self.bot.say(embed=em)
-                await self.bot.say("Neko is owned by Archaotic#4645. Based off Red - Discordbot (Created "
-                                        "by Twentysix26 and improved by many.)\n" + usecase)
+                await self.bot.say(usecase)
 
         else:
             msg = "**Command Help:**"

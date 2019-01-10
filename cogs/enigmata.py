@@ -279,7 +279,7 @@ class Enigmata:
                 await self.bot.upload(fp="data/enigmata/453668709396119562/{}".format(file))
         else:
             await self.bot.say(
-                "That file doesn't seem to exist. Make sure it is the good name, try to add the extention (especially if two files have the same name)"
+                "That file doesn't seem to exist. Make sure it is an available name, try to add the extention (especially if two files have the same name)"
             )
 
     @enigmata.command(pass_context=True, no_pm=True, invoke_without_command=True)

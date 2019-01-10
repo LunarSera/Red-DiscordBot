@@ -1057,15 +1057,15 @@ class Mod:
         Defaults to current one"""
         current_ch = ctx.message.channel
         if not channel:
-            if current_ch.id not in self.ignore_list["CHANNELS"]:
-                self.ignore_list["CHANNELS"].append(current_ch.id)
+            if current_ch.name not in self.ignore_list["CHANNELS"]:
+                self.ignore_list["CHANNELS"].append(current_ch.name)
                 dataIO.save_json("data/mod/ignorelist.json", self.ignore_list)
                 await self.bot.say("Channel added to ignore list.")
             else:
                 await self.bot.say("Channel already in ignore list.")
         else:
-            if channel.id not in self.ignore_list["CHANNELS"]:
-                self.ignore_list["CHANNELS"].append(channel.id)
+            if channel.name not in self.ignore_list["CHANNELS"]:
+                self.ignore_list["CHANNELS"].append(channel.name)
                 dataIO.save_json("data/mod/ignorelist.json", self.ignore_list)
                 await self.bot.say("Channel added to ignore list.")
             else:
@@ -1075,8 +1075,8 @@ class Mod:
     async def ignore_server(self, ctx):
         """Ignores current server"""
         server = ctx.message.server
-        if server.id not in self.ignore_list["SERVERS"]:
-            self.ignore_list["SERVERS"].append(server.id)
+        if server.name not in self.ignore_list["SERVERS"]:
+            self.ignore_list["SERVERS"].append(server.name)
             dataIO.save_json("data/mod/ignorelist.json", self.ignore_list)
             await self.bot.say("This server has been added to the ignore list.")
         else:
@@ -1097,15 +1097,15 @@ class Mod:
         Defaults to current one"""
         current_ch = ctx.message.channel
         if not channel:
-            if current_ch.id in self.ignore_list["CHANNELS"]:
-                self.ignore_list["CHANNELS"].remove(current_ch.id)
+            if current_ch.name in self.ignore_list["CHANNELS"]:
+                self.ignore_list["CHANNELS"].remove(current_ch.name)
                 dataIO.save_json("data/mod/ignorelist.json", self.ignore_list)
                 await self.bot.say("This channel has been removed from the ignore list.")
             else:
                 await self.bot.say("This channel is not in the ignore list.")
         else:
-            if channel.id in self.ignore_list["CHANNELS"]:
-                self.ignore_list["CHANNELS"].remove(channel.id)
+            if channel.name in self.ignore_list["CHANNELS"]:
+                self.ignore_list["CHANNELS"].remove(channel.name)
                 dataIO.save_json("data/mod/ignorelist.json", self.ignore_list)
                 await self.bot.say("Channel removed from ignore list.")
             else:
@@ -1115,8 +1115,8 @@ class Mod:
     async def unignore_server(self, ctx):
         """Removes current server from ignore list"""
         server = ctx.message.server
-        if server.id in self.ignore_list["SERVERS"]:
-            self.ignore_list["SERVERS"].remove(server.id)
+        if server.name in self.ignore_list["SERVERS"]:
+            self.ignore_list["SERVERS"].remove(server.name)
             dataIO.save_json("data/mod/ignorelist.json", self.ignore_list)
             await self.bot.say("This server has been removed from the ignore list.")
         else:
@@ -1124,8 +1124,8 @@ class Mod:
 
     def count_ignored(self):
         msg = "```Currently ignoring:\n"
-        msg += str(len(self.ignore_list["CHANNELS"])) + " channels\n"
-        msg += str(len(self.ignore_list["SERVERS"])) + " servers\n```\n"
+        msg += str(self.ignore_list["CHANNELS"]) + "```\n"
+#        msg += str(self.ignore_list["SERVERS"]) + "```\n"
         return msg
 
     @commands.group(name="filter", pass_context=True, no_pm=True)
