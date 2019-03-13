@@ -1,3 +1,7 @@
+#Disclaimer: I, Samuel Dixon aka Archaotic aka Lunarsera, Claim none of this content as my own. I have no written my own cog from scratch. I borrow code from other developers and rewrite, if needed,  portions of it to suit my own needs.
+My goal is to organize and repurpose this code to be more useful to myself and the server I run this code on.
+
+
 ![intro](http://i.imgur.com/RgGlNpQ.jpg)
 
 # Red - A fully customizable Discord bot
