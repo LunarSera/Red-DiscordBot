@@ -529,18 +529,6 @@ class Owner:
             log.exception(e)
             traceback.print_exc()
 
-    @_set.command(name="token")
-    @checks.is_owner()
-    async def _token(self, token):
-        """Sets Red's login token"""
-        if len(token) < 50:
-            await self.bot.say("Invalid token.")
-        else:
-            self.bot.settings.token = token
-            self.bot.settings.save_settings()
-            await self.bot.say("Token set. Restart me.")
-            log.debug("Token changed.")
-
     @_set.command(name="adminrole", pass_context=True, no_pm=True)
     @checks.serverowner()
     async def _server_adminrole(self, ctx, *, role: discord.Role):
@@ -759,15 +747,6 @@ class Owner:
             except:
                 pass
 
-    @commands.command()
-    @checks.is_owner()
-    async def join(self):
-        """Shows Red's invite URL"""
-        if self.bot.user.bot:
-            await self.bot.whisper("Invite URL: " + self.bot.oauth_url)
-        else:
-            await self.bot.say("I'm not a bot account. I have no invite URL.")
-
     @commands.command(pass_context=True, no_pm=True)
     @checks.is_owner()
     async def leave(self, ctx):
@@ -823,52 +802,6 @@ class Owner:
                 await self.bot.say("Done.")
         else:
             await self.bot.say("Alright then.")
-
-    @commands.command(pass_context=True)
-    @checks.is_owner()
-    @commands.cooldown(1, 60, commands.BucketType.user)
-    async def contact(self, ctx, *, message : str):
-        """Sends a message to the owner"""
-        if self.bot.settings.owner is None:
-            await self.bot.say("I have no owner set.")
-            return
-        server = ctx.message.server
-        owner = discord.utils.get(self.bot.get_all_members(),
-                                  id=self.bot.settings.owner)
-        author = ctx.message.author
-        footer = "User ID: " + author.id
-
-        if ctx.message.server is None:
-            source = "through DM"
-        else:
-            source = "from {}".format(server)
-            footer += " | Server ID: " + server.id
-
-        if isinstance(author, discord.Member):
-            colour = author.colour
-        else:
-            colour = discord.Colour.red()
-
-        description = "Sent by {} {}".format(author, source)
-
-        e = discord.Embed(colour=colour, description=message)
-        if author.avatar_url:
-            e.set_author(name=description, icon_url=author.avatar_url)
-        else:
-            e.set_author(name=description)
-        e.set_footer(text=footer)
-
-        try:
-            await self.bot.send_message(owner, embed=e)
-        except discord.InvalidArgument:
-            await self.bot.say("I cannot send your message, I'm unable to find"
-                               " my owner... *sigh*")
-        except discord.HTTPException:
-            await self.bot.say("Your message is too long.")
-        except:
-            await self.bot.say("I'm unable to deliver your message. Sorry.")
-        else:
-            await self.bot.say("Your message has been sent.")
 
     @commands.command()
     @checks.is_owner()

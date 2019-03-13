@@ -83,8 +83,8 @@ class nicklog:
         fileIO(self.direct, "save", db)
         await self.bot.say("I will no longer send nickdetect notifications here")
 
-    @nickdetecttoggles.command(pass_context=True, no_pm=True)
-    async def user(self, ctx):
+    @nickdetectset.command(pass_context=True, no_pm=True)
+    async def toggle(self, ctx):
         """toggle notifications when a user changes his profile"""
         server = ctx.message.server
         db = fileIO(self.direct, "load")

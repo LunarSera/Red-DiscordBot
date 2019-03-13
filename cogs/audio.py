@@ -2192,7 +2192,7 @@ class Audio:
 
             for server in stop_times:
                 if stop_times[server] and \
-                        int(time.time()) - stop_times[server] > 300:
+                        int(time.time()) - stop_times[server] > 15:
                     # 5 min not playing to d/c
                     timer_disconnect = self.get_server_settings(server)
                     timer_disconnect = timer_disconnect.get("TIMER_DISCONNECT", True)

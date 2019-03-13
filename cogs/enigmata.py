@@ -18,11 +18,33 @@ class Enigmata:
         self.lore = dataIO.load_json("data/enigmata/lore.json")
         self.images = dataIO.load_json("data/enigmata/image.index.json")
         self.session = aiohttp.ClientSession(loop=self.bot.loop)
-        self.staffapp = dataIO.load_json('data/staffapp/settings.json')
+        self.staffapp = dataIO.load_json('data/enigmata/staffapp.json')
         for s in self.staffapp:
             self.staffapp[s]['usercache'] = []
+
+    # Events
+    async def on_voice_state_update(self, before: discord.Member, after: discord.Member):
+        channel = before.voice_channel
+        if channel is not None and channel != after.voice_channel and channel.id in self.config["locks"]:
+            if before.id == self.config["locks"][channel.id]["who_locked"]:
+                await self.unlock_channel(channel, before)
+                self.save_data()
+            else:
+                try:
+                    await self.bot.delete_channel_permissions(channel, before)
+                except discord.NotFound:
+                    self.logger.warning("Couldn't find the channel from which permissions are deleted. Ignoring.")
+        elif after.voice_channel is not None and channel != after.voice_channel \
+                and after.voice_channel.id in self.config["locks"] \
+                and after.id in self.config["locks"][after.voice_channel.id]["permits"]:
+            self.config["locks"][after.voice_channel.id]["permits"].remove(after.id)
+    
+    async def initialize(self):
+        await self.bot.wait_until_ready()
+        await self.verify_locked_channels()
+
     def save_json(self):
-        dataIO.save_json("data/staffapp/settings.json", self.staffapp)
+        dataIO.save_json("data/enigmata/staffapp.json", self.staffapp)
 
     def __unload(self):
         self.session.close()
@@ -364,13 +386,8 @@ def check_file():
         print("Creating default lore.json...")
         dataIO.save_json(f, lore)
 
-def check_folder():
-    f = 'data/staffapp'
-    if not os.path.exists(f):
-        os.makedirs(f)
-
 def check_file():
-    f = 'data/staffapp/settings.json'
+    f = 'data/enigmata/staffapp.json'
     if dataIO.is_valid_json(f) is False:
         dataIO.save_json(f, {})
 
